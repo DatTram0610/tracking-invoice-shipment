@@ -1,7 +1,18 @@
 .form-header {
     margin-bottom: 16px;
+    text-align: center;
 }
 
 .form-submission {
     margin-top: 32px;
+}
+
+.add-container-icon {
+    margin-right: 8px;
+    font-weight: bolder;
+}
+
+.form-shipment-add {
+    margin-top: 32px;
+    margin-bottom: 16px;
 }
