@@ -1,3 +1,5 @@
+import { Container } from './container';
+
 export class Invoice {
   clientFirstName: string;
   clientLastName: string;
@@ -6,6 +8,7 @@ export class Invoice {
   state: string;
   zipCode: string;
   fee: number;
+  container: Container;
   constructor() {
     this.clientFirstName = null;
     this.clientLastName = null;
@@ -14,5 +17,6 @@ export class Invoice {
     this.state = null;
     this.zipCode = null;
     this.fee = null;
+    this.container = new Container();
   }
 }
