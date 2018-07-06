@@ -6,5 +6,6 @@ export class Container {
     constructor() {
         this.id = null;
         this.color = null;
+        this.description = null;
     }
 }

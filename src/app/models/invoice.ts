@@ -8,7 +8,7 @@ export class Invoice {
   state: string;
   zipCode: string;
   fee: number;
-  container: Container;
+  container: Container[];
   constructor() {
     this.clientFirstName = null;
     this.clientLastName = null;
@@ -17,6 +17,6 @@ export class Invoice {
     this.state = null;
     this.zipCode = null;
     this.fee = null;
-    this.container = new Container();
+    this.container = [];
   }
 }
