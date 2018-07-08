@@ -1,6 +1,7 @@
 import { Container } from './container';
 
 export class Invoice {
+  invoiceNumber: number;
   clientFirstName: string;
   clientLastName: string;
   address: string;
@@ -10,6 +11,7 @@ export class Invoice {
   fee: number;
   container: Container[];
   constructor() {
+    this.invoiceNumber = null;
     this.clientFirstName = null;
     this.clientLastName = null;
     this.address = null;

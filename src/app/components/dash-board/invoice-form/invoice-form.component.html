@@ -45,16 +45,31 @@
           <label for="fee">Fee</label>
           <input type="text" class="form-control" id="fee" name="fee" placeholder="Fee" required [(ngModel)]="invoice.fee">
         </div>
+        <div class="container-list" *ngIf="invoice.container.length > 0">
+          <label for="containerList">Container List</label>
+          <div class="card" *ngFor="let container of invoice.container; let i = index ">
+            <div class="card-body">
+              <h6 class="card-title">Container ID: {{container.id}}</h6>
+              <h6 class="card-title">Container Color: {{container.color}}</h6>
+              <p class="card-text" *ngIf="container.description">{{container.description}}</p>
+              <button type="button" class="btn btn-info container-btn" (click)="editContainer(i, container)">Edit</button>
+              <button type="button" class="btn btn-danger container-btn" (click)="removeContainer(i)">Remove</button>
+            </div>
+          </div>
+        </div>
         <div class="form-shipment">
           <div class="form-shipment-add">
-            <button type="button" class="btn btn-default" *ngIf="!isAddingContainer" (click)="showNewContainerForm()">
-              <span class="add-container-icon">&#43;</span>New Container
+            <button type="button" class="btn btn-default" *ngIf="!isAddingContainer && !isEditingContainer" (click)="showNewContainerForm()">
+              New Container
             </button>
-            <button type="button" class="btn btn-default" *ngIf="isAddingContainer" (click)="saveNewContainer()">
-              <span class="add-container-icon">&#43;</span>Add
+            <button type="button" class="btn btn-default" *ngIf="isAddingContainer && !isEditingContainer" (click)="addNewContainer()">
+              Add
+            </button>
+            <button type="button" class="btn btn-default" *ngIf="!isAddingContainer && isEditingContainer" (click)="saveEditContainer()">
+              Save
             </button>
           </div>
-          <div class="form-shipment-form" *ngIf="isAddingContainer">
+          <div class="form-shipment-form" *ngIf="isAddingContainer || isEditingContainer">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
