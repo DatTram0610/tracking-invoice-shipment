@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlertModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from './material.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -24,7 +26,9 @@ import { InvoiceService } from './services/invoice.service';
     BrowserModule,
     AlertModule.forRoot(),
     FormsModule,
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [
     InvoiceService
