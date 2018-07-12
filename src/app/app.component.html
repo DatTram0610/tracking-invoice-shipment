@@ -1,4 +1,8 @@
-<app-navigation-bar></app-navigation-bar>
-<div class="container">
-    <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+        <p>I am the side nav</p>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav>
+</mat-sidenav-container>
