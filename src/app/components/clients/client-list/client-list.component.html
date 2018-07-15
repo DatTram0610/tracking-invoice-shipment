@@ -1,3 +1,10 @@
-<p>
-  company-list works!
-</p>
+<div class="client-list" *ngIf="clients">
+  <h1>Client List</h1> 
+  <div class="cleints" *ngFor="let client of clients">
+    <app-client [clientDetail]="client"></app-client>
+  </div>
+</div>
+
+<div *ngIf="!clients">
+  <h1>Loading...</h1>
+</div>

@@ -15,11 +15,15 @@ import { InvoiceFormComponent } from './components/invoice/invoice-form/invoice-
 import { WelcomeComponent } from './components/dash-board/welcome/welcome.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
+import { InvoiceListComponent } from './components/invoice/invoice-list/invoice-list.component';
+import { ClientListComponent } from './components/clients/client-list/client-list.component';
+import { HeaderComponent } from './components/navigation/header/header.component';
+import { SidenavListComponent } from './components/navigation/sidenav-list/sidenav-list.component';
 
 // Services
 import { InvoiceService } from './services/invoice.service';
-import { InvoiceListComponent } from './components/invoice/invoice-list/invoice-list.component';
-import { ClientListComponent } from './components/clients/client-list/client-list.component';
+import { ClientService } from './services/client.service';
+import { ClientComponent } from './components/clients/client/client.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { ClientListComponent } from './components/clients/client-list/client-lis
     InvoiceListComponent,
     ClientListComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    HeaderComponent,
+    SidenavListComponent,
+    ClientComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +50,8 @@ import { ClientListComponent } from './components/clients/client-list/client-lis
     FlexLayoutModule
   ],
   providers: [
-    InvoiceService
+    InvoiceService,
+    ClientService
   ],
   bootstrap: [AppComponent]
 })
