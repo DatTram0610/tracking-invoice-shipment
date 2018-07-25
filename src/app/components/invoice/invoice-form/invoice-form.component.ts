@@ -10,7 +10,7 @@ import { InvoiceService } from '../../../services/invoice.service';
 @Component({
   selector: 'app-invoice-form',
   templateUrl: './invoice-form.component.html',
-  styleUrls: ['./invoice-form.component.css']
+  styleUrls: ['./invoice-form.component.less']
 })
 export class InvoiceFormComponent implements OnInit {
   invoice: Invoice;

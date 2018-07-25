@@ -19,6 +19,7 @@ import { InvoiceListComponent } from './components/invoice/invoice-list/invoice-
 import { ClientListComponent } from './components/clients/client-list/client-list.component';
 import { HeaderComponent } from './components/navigation/header/header.component';
 import { SidenavListComponent } from './components/navigation/sidenav-list/sidenav-list.component';
+import { AddEditClientComponent } from './components/clients/add-edit-client/add-edit-client.component';
 
 // Services
 import { InvoiceService } from './services/invoice.service';
@@ -37,7 +38,8 @@ import { ClientComponent } from './components/clients/client/client.component';
     SignUpComponent,
     HeaderComponent,
     SidenavListComponent,
-    ClientComponent
+    ClientComponent,
+    AddEditClientComponent
   ],
   imports: [
     BrowserModule,

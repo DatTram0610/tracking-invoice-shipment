@@ -10,7 +10,7 @@
         required
         #emailInput="ngModel">
         <mat-error *ngIf="emailInput.hasError('required')">Email is required</mat-error>
-        <mat-error *ngIf="!emailInput.hasError('required')">Email is required</mat-error>
+        <mat-error *ngIf="!emailInput.hasError('required')">Email is invalid!</mat-error>
     </mat-form-field>
     <mat-form-field>
       <input 
@@ -24,6 +24,6 @@
         <mat-error *ngIf="pwInput.hasError('required')">Password is required</mat-error>
         <mat-error *ngIf="pwInput.hasError('minlength')">Should be at least 6 characters</mat-error>
     </mat-form-field>
-    <button type="submit" mat-raised-button color="primary">Submit</button>
+    <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Submit</button>
   </form>
 </section>

@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { WelcomeComponent } from './components/dash-board/welcome/welcome.component';
 import { InvoiceListComponent } from './components/invoice/invoice-list/invoice-list.component';
 import { ClientListComponent } from './components/clients/client-list/client-list.component';
+import { AddEditClientComponent } from './components/clients/add-edit-client/add-edit-client.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 
@@ -13,7 +14,8 @@ const routes: Routes = [
     { path: 'sign-in', component: SignInComponent},
     { path: 'sign-up', component: SignUpComponent},
     { path: 'invoices', component: InvoiceListComponent},
-    { path: 'clients', component: ClientListComponent}
+    { path: 'clients', component: ClientListComponent},
+    { path: 'clients/add-edit-client', component: AddEditClientComponent}
 ];
 
 @NgModule({
