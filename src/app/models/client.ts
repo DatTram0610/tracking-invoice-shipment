@@ -20,6 +20,8 @@ export class Client {
     subCustomerBillWithParent?: string;
     billingAddress: Address;
     shippingAddress: Address;
+    createdDate?: Date;
+    updatedDate?: Date;
 
     constructor() {
         this.displayName = null;

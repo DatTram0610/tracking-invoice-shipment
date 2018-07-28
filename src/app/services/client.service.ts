@@ -26,7 +26,9 @@ export class ClientService {
         city: 'Carson',
         state: 'CA',
         zipcode: '92345'
-      }
+      },
+      createdDate: new Date('2015-03-25'),
+      updatedDate: new Date('2015-03-25')
     },
     {
       displayName: 'Company B',
@@ -46,7 +48,9 @@ export class ClientService {
         city: 'Hawthorne',
         state: 'CA',
         zipcode: '96789'
-      }
+      },
+      createdDate: new Date('2015-03-25'),
+      updatedDate: new Date('2015-03-25')
     },
     {
       displayName: 'Company C',
@@ -66,7 +70,97 @@ export class ClientService {
         city: 'Irvine',
         state: 'CA',
         zipcode: '99012'
-      }
+      },
+      createdDate: new Date('2015-03-25'),
+      updatedDate: new Date('2015-03-25')
+    },
+    {
+      displayName: 'Company B',
+      firstName : 'David',
+      lastName : 'Muller',
+      email : 'davidm@gmail.com',
+      phone : '3109725678',
+      nameOnCheck : 'Company B',
+      billingAddress : {
+        street: '456 Western St',
+        city: 'Hawthorne',
+        state: 'CA',
+        zipcode: '96789'
+      },
+      shippingAddress : {
+        street: '456 Western St',
+        city: 'Hawthorne',
+        state: 'CA',
+        zipcode: '96789'
+      },
+      createdDate: new Date('2015-03-25'),
+      updatedDate: new Date('2015-03-25')
+    },
+    {
+      displayName: 'Company B',
+      firstName : 'David',
+      lastName : 'Muller',
+      email : 'davidm@gmail.com',
+      phone : '3109725678',
+      nameOnCheck : 'Company B',
+      billingAddress : {
+        street: '456 Western St',
+        city: 'Hawthorne',
+        state: 'CA',
+        zipcode: '96789'
+      },
+      shippingAddress : {
+        street: '456 Western St',
+        city: 'Hawthorne',
+        state: 'CA',
+        zipcode: '96789'
+      },
+      createdDate: new Date('2015-03-25'),
+      updatedDate: new Date('2015-03-25')
+    },
+    {
+      displayName: 'Company B',
+      firstName : 'David',
+      lastName : 'Muller',
+      email : 'davidm@gmail.com',
+      phone : '3109725678',
+      nameOnCheck : 'Company B',
+      billingAddress : {
+        street: '456 Western St',
+        city: 'Hawthorne',
+        state: 'CA',
+        zipcode: '96789'
+      },
+      shippingAddress : {
+        street: '456 Western St',
+        city: 'Hawthorne',
+        state: 'CA',
+        zipcode: '96789'
+      },
+      createdDate: new Date('2015-03-25'),
+      updatedDate: new Date('2015-03-25')
+    },
+    {
+      displayName: 'Company B',
+      firstName : 'David',
+      lastName : 'Muller',
+      email : 'davidm@gmail.com',
+      phone : '3109725678',
+      nameOnCheck : 'Company B',
+      billingAddress : {
+        street: '456 Western St',
+        city: 'Hawthorne',
+        state: 'CA',
+        zipcode: '96789'
+      },
+      shippingAddress : {
+        street: '456 Western St',
+        city: 'Hawthorne',
+        state: 'CA',
+        zipcode: '96789'
+      },
+      createdDate: new Date('2015-03-25'),
+      updatedDate: new Date('2015-03-25')
     }
   ];
   constructor() {}

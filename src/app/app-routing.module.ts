@@ -8,6 +8,7 @@ import { ClientListComponent } from './components/clients/client-list/client-lis
 import { AddEditClientComponent } from './components/clients/add-edit-client/add-edit-client.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
+import { ClientDetailComponent } from './components/clients/client-detail/client-detail.component';
 
 const routes: Routes = [
     { path: '', component: WelcomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
     { path: 'sign-up', component: SignUpComponent},
     { path: 'invoices', component: InvoiceListComponent},
     { path: 'clients', component: ClientListComponent},
+    { path: 'clients/:clientId', component: ClientDetailComponent},
     { path: 'clients/add-edit-client', component: AddEditClientComponent}
 ];
 

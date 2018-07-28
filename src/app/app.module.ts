@@ -8,6 +8,7 @@ import { MaterialModule } from './material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+
 // Components
 import { AppComponent } from './app.component';
 import { WrapperComponent } from './components/dash-board/wrapper/wrapper.component';
@@ -19,12 +20,12 @@ import { InvoiceListComponent } from './components/invoice/invoice-list/invoice-
 import { ClientListComponent } from './components/clients/client-list/client-list.component';
 import { HeaderComponent } from './components/navigation/header/header.component';
 import { SidenavListComponent } from './components/navigation/sidenav-list/sidenav-list.component';
+import { ClientDetailComponent } from './components/clients/client-detail/client-detail.component';
 import { AddEditClientComponent } from './components/clients/add-edit-client/add-edit-client.component';
 
 // Services
 import { InvoiceService } from './services/invoice.service';
 import { ClientService } from './services/client.service';
-import { ClientComponent } from './components/clients/client/client.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { ClientComponent } from './components/clients/client/client.component';
     SignUpComponent,
     HeaderComponent,
     SidenavListComponent,
-    ClientComponent,
+    ClientDetailComponent,
     AddEditClientComponent
   ],
   imports: [
@@ -49,7 +50,7 @@ import { ClientComponent } from './components/clients/client/client.component';
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   providers: [
     InvoiceService,

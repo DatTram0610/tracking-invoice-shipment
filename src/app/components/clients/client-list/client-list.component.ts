@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material';
 
 // Services
 import { ClientService } from '../../../services/client.service';
@@ -12,15 +13,17 @@ import { Client } from '../../../models/client';
   styleUrls: ['./client-list.component.less']
 })
 export class ClientListComponent implements OnInit {
-  clients: Client[];
+  displayedColumns: string[];
+  dataSource = new MatTableDataSource<Client>();
 
   constructor(
     private clientService: ClientService
   ) { }
 
   ngOnInit() {
-    this.clients = this.clientService.getClients();
-    console.log('Clients:', this.clients);
+    this.dataSource.data = this.clientService.getClients();
+    this.displayedColumns = ['date', 'name', 'email', 'detail'];
+    console.log('Clients:', this.dataSource.data);
   }
 
 }
