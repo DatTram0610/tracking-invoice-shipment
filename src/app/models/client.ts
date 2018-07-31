@@ -24,12 +24,12 @@ export class Client {
     updatedDate?: Date;
 
     constructor() {
-        this.displayName = null;
-        this.firstName = null;
-        this.lastName = null;
-        this.email = null;
-        this.phone = null;
-        this.nameOnCheck = null;
+        this.displayName = '';
+        this.firstName = '';
+        this.lastName = '';
+        this.email = '';
+        this.phone = '';
+        this.nameOnCheck = '';
         this.billingAddress = new Address();
         this.shippingAddress = new Address();
     }

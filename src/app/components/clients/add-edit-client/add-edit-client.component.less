@@ -1,5 +1,15 @@
+@container-top-bottom-margin: 60px;
+
 .client-form {
-    .client-title {
-        width: 70px;
+    margin-top: @container-top-bottom-margin;
+    margin-bottom: @container-top-bottom-margin;
+    max-width: 700px;
+    mat-form-field {
+        display: inline;
+    }
+    .row {
+        &-item {
+            padding: 0 10px;
+        }
     }
 }

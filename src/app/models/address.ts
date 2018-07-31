@@ -1,14 +1,16 @@
 export class Address {
-  street: string;
+  address1: string;
+  address2?: string;
   city: string;
   state: string;
-  zipcode: string;
-  country?: string;
+  zipCode: string;
+  country: string;
 
   constructor() {
-    this.street = null;
-    this.city = null;
-    this.state = null;
-    this.zipcode = null;
+    this.address1 = '';
+    this.address2 = '';
+    this.city = '';
+    this.state = '';
+    this.zipCode = '';
   }
 }

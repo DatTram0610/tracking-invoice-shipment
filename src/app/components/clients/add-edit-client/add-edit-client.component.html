@@ -1,24 +1,138 @@
-<form class="client-form" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #clientForm="ngForm" (ngSubmit)="onSubmit(clientForm)">
-  <div class="contact-info" fxLayout="row" fxLayoutGap="10px">
-    <mat-form-field appearance="outline" class="client-title">
-      <mat-label>Title</mat-label>
-      <input matInput placeholder="Title">
-      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-      <!-- <mat-hint>Hint</mat-hint> -->
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="client-fname">
-      <mat-label>First Name</mat-label>
-      <input matInput placeholder="First Name">
-      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-      <!-- <mat-hint>Hint</mat-hint> -->
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="client-lname">
-      <mat-label>Last Name</mat-label>
-      <input matInput placeholder="Last Name">
-      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-      <!-- <mat-hint>Hint</mat-hint> -->
-    </mat-form-field>
-  </div>
-  <button type="submit" mat-raised-button color="primary" [disabled]="clientForm.invalid">Submit</button>
-</form>
+<div class="container client-form">
+  <form #clientForm="ngForm" (ngSubmit)="addClient()">
+    <h2>Contact Information</h2>
+    <div class="row">
+      <div class="row-item col-sm-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Title" type="text" [(ngModel)]="client.title" name="title">
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div class="row-item col-sm-5">
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="First Name" type="text" [(ngModel)]="client.firstName" name="first">
+        </mat-form-field>
+      </div>
+      <div class="row-item col-sm-5">
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Last Name" type="text" [(ngModel)]="client.lastName" name="last">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-item col-sm-12">
+        <mat-form-field appearance="outline">
+          <mat-label>Company Name</mat-label>
+          <input matInput placeholder="Company Name" type="text" [(ngModel)]="client.companyName" name="company">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-item col-sm-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Phone</mat-label>
+          <input matInput placeholder="Phone number" type="tel" [(ngModel)]="client.phone" name="phone" (input)="phoneChange()">
+        </mat-form-field>
+      </div>
+      <div class="row-item col-sm-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" type="email" [(ngModel)]="client.email" name="email">
+        </mat-form-field>
+      </div>
+    </div>
+  
+    <h2>Billing Address</h2>
+    <div class="row">
+      <div class="col-sm-6 row-item">
+        <mat-form-field appearance="outline">
+          <mat-label>Address 1</mat-label>
+          <input matInput placeholder="Street and number" type="text" [(ngModel)]="client.billingAddress.address1" name="billingAddress1" (input)="billingAddress1Change($event)">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6 row-item">
+        <mat-form-field appearance="outline">
+          <mat-label>Address 2</mat-label>
+          <input matInput placeholder="Suite, unit, building, floor, etc." type="text" [(ngModel)]="client.billingAddress.address2" name="billingAddress2" (input)="billingAddress2Change($event)">
+        </mat-form-field>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-sm-4 row-item">
+        <mat-form-field appearance="outline">
+          <mat-label>City</mat-label>
+          <input matInput placeholder="City" type="text" [(ngModel)]="client.billingAddress.city" name="billingCity" (input)="billingCityChange($event)">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-4 row-item">
+        <mat-form-field appearance="outline">
+          <mat-label>State / Province</mat-label>
+          <input matInput placeholder="State / Province" type="text" [(ngModel)]="client.billingAddress.state" name="billingState" (input)="billingStateChange($event)">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-4 row-item">
+        <mat-form-field appearance="outline">
+          <mat-label>Zip Code</mat-label>
+          <input matInput placeholder="Zip Code" type="text" [(ngModel)]="client.billingAddress.zipCode" name="billingZipCode" (input)="billingZipCodeChange($event)">
+        </mat-form-field>
+      </div>
+    </div>
+  
+    <div class="row shipping-address-label">
+      <div class="col-sm-6">
+        <h2>Shipping Address</h2>
+      </div>
+      <div class="col-sm-6 same-as-billing-checkbox">
+        <mat-checkbox (click)="copyBilling()" [(ngModel)]="sameAsBilling" name="sameAsBilling">Same as Billing Address</mat-checkbox>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-item col-sm-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Address 1</mat-label>
+          <input matInput placeholder="Street and number" type="text" [(ngModel)]="client.shippingAddress.address1" name="shippingAddress1" [disabled]="sameAsBilling">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6 row-item">
+        <mat-form-field appearance="outline">
+          <mat-label>Address 2</mat-label>
+          <input matInput placeholder="Suite, unit, building, floor, etc." type="text" [(ngModel)]="client.shippingAddress.address2" name="shippingAddress2" [disabled]="sameAsBilling">
+        </mat-form-field>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-sm-4 row-item">
+        <mat-form-field appearance="outline">
+          <mat-label>City</mat-label>
+          <input matInput placeholder="City" type="text" [(ngModel)]="client.shippingAddress.city" name="shippingCity" [disabled]="sameAsBilling">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-4 row-item">
+        <mat-form-field appearance="outline">
+          <mat-label>State / Province</mat-label>
+          <input matInput placeholder="State / Province" type="text" [(ngModel)]="client.shippingAddress.state" name="shippingState" [disabled]="sameAsBilling">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-4 row-item">
+        <mat-form-field appearance="outline">
+          <mat-label>Zip Code</mat-label>
+          <input matInput placeholder="Zip Code" type="text" [(ngModel)]="client.shippingAddress.zipCode" name="shippingZipCode" [disabled]="sameAsBilling">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center">
+      <button type="submit" mat-raised-button color="primary" [disabled]="clientForm.invalid">Submit</button>
+    </div>
+  </form>
+</div>
 
