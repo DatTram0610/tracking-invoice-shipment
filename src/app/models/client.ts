@@ -1,6 +1,7 @@
 import { Address } from './address';
 
 export class Client {
+    id?: string;
     title?: string;
     companyName?: string;
     displayName: string;
@@ -22,6 +23,7 @@ export class Client {
     shippingAddress: Address;
     createdDate?: Date;
     updatedDate?: Date;
+    containers?: string[];
 
     constructor() {
         this.displayName = '';

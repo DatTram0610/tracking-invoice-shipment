@@ -16,10 +16,9 @@ const routes: Routes = [
     { path: 'sign-up', component: SignUpComponent},
     { path: 'invoices', component: InvoiceListComponent},
     { path: 'clients', component: ClientListComponent},
-    { path: 'clients/add-client', component: AddEditClientComponent}, // can add and edit route share same component?
-    { path: 'clients/edit-client/:clientId', component: AddEditClientComponent },
-    { path: 'clients/:clientId', component: ClientDetailComponent}
-    
+    { path: 'clients/:clientId', component: ClientDetailComponent},
+    { path: 'clients/add-edit-client/', component: AddEditClientComponent},
+    { path: 'clients/add-edit-client/:id', component: AddEditClientComponent}
 ];
 
 @NgModule({

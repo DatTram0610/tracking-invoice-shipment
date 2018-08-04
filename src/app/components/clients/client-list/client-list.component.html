@@ -26,7 +26,7 @@
     <ng-container matColumnDef="detail">
       <mat-header-cell *matHeaderCellDef> Detail </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <a mat-raised-button>
+        <a mat-raised-button (click)="goToClientDetail(element)">
           View Detail
         </a>
       </mat-cell>

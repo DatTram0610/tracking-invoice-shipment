@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
+import { Router } from '@angular/router';
 
 // Services
 import { ClientService } from '../../../services/client.service';
@@ -17,7 +18,8 @@ export class ClientListComponent implements OnInit {
   dataSource = new MatTableDataSource<Client>();
 
   constructor(
-    private clientService: ClientService
+    private clientService: ClientService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -26,4 +28,9 @@ export class ClientListComponent implements OnInit {
     console.log('Clients:', this.dataSource.data);
   }
 
+  goToClientDetail(client: Client): void {
+    console.log(client);
+    this.clientService.setCurrentClient(client);
+    this.router.navigate(['/clients', client.id]);
+  }
 }
