@@ -12,10 +12,9 @@ import { Client } from '../../../models/client';
   styleUrls: ['./add-edit-client.component.less']
 })
 export class AddEditClientComponent implements OnInit {
-  
   client: Client = new Client();
-  sameAsBilling: boolean = false;
-  addClientError: boolean = false;
+  sameAsBilling: Boolean = false;
+  addClientError: Boolean = false;
 
   constructor(private clientService: ClientService, private router: Router) { }
 
@@ -43,32 +42,37 @@ export class AddEditClientComponent implements OnInit {
     }
   }
 
-  phoneChange () : void {
+  phoneChange (): void {
     // ToDo: format phone
   }
 
-  billingAddress1Change (event) : void {
-    if (this.sameAsBilling)
+  billingAddress1Change (event): void {
+    if (this.sameAsBilling) {
       this.client.shippingAddress.address1 = event.target.value;
+    }
   }
 
-  billingAddress2Change(event) : void {
-    if (this.sameAsBilling)
+  billingAddress2Change(event): void {
+    if (this.sameAsBilling) {
       this.client.shippingAddress.address2 = event.target.value;
+    }
   }
 
-  billingCityChange(event) : void {
-    if (this.sameAsBilling)
+  billingCityChange(event): void {
+    if (this.sameAsBilling) {
       this.client.shippingAddress.city = event.target.value;
+    }
   }
 
-  billingStateChange(event) : void {
-    if (this.sameAsBilling)
+  billingStateChange(event): void {
+    if (this.sameAsBilling) {
       this.client.shippingAddress.state = event.target.value;
+    }
   }
 
-  billingZipCodeChange(event) : void {
-    if (this.sameAsBilling)
+  billingZipCodeChange(event): void {
+    if (this.sameAsBilling) {
       this.client.shippingAddress.zipCode = event.target.value;
+    }
   }
 }

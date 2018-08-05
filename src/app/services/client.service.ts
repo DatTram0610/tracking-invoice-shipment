@@ -30,7 +30,7 @@ export class ClientService {
         state: 'CA',
         zipCode: '90001'
       },
-      createdDate: new Date('2015-03-25'),
+      createdDate: new Date('2015-04-25'),
       updatedDate: new Date('2015-03-25')
     },
     {
@@ -57,7 +57,7 @@ export class ClientService {
         zipCode: '96789',
         country: 'US'
       },
-      createdDate: new Date('2015-03-25'),
+      createdDate: new Date('2015-04-25'),
       updatedDate: new Date('2015-03-25')
     },
     {
@@ -84,7 +84,7 @@ export class ClientService {
         zipCode: '99012',
         country: 'US'
       },
-      createdDate: new Date('2015-03-25'),
+      createdDate: new Date('2015-05-23'),
       updatedDate: new Date('2015-03-25')
     },
     {
@@ -107,7 +107,7 @@ export class ClientService {
         state: 'CA',
         zipCode: '96789'
       },
-      createdDate: new Date('2015-03-25'),
+      createdDate: new Date('2015-01-02'),
       updatedDate: new Date('2015-03-25')
     },
     {
@@ -130,7 +130,7 @@ export class ClientService {
         state: 'CA',
         zipCode: '96789'
       },
-      createdDate: new Date('2015-03-25'),
+      createdDate: new Date('2014-02-24'),
       updatedDate: new Date('2015-03-25')
     },
     {
