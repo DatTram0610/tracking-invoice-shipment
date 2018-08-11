@@ -6,10 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wrapper.component.less']
 })
 export class WrapperComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

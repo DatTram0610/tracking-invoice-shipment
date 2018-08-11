@@ -6,10 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./container.component.less']
 })
 export class ContainerComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

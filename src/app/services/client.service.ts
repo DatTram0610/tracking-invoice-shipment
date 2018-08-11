@@ -11,12 +11,12 @@ export class ClientService {
     {
       id: '1',
       displayName: 'Company A',
-      firstName : 'Daniel',
-      lastName : 'Frank',
-      email : 'danielf@gmail.com',
-      phone : '3109721234',
-      nameOnCheck : 'Company A',
-      billingAddress : {
+      firstName: 'Daniel',
+      lastName: 'Frank',
+      email: 'danielf@gmail.com',
+      phone: '3109721234',
+      nameOnCheck: 'Company A',
+      billingAddress: {
         address1: '123 Main St',
         address2: 'Suite #135',
         city: 'Carson',
@@ -24,7 +24,7 @@ export class ClientService {
         zipCode: '92345',
         country: 'US'
       },
-      shippingAddress : {
+      shippingAddress: {
         address1: '9802 Western St',
         city: 'Hawthorne',
         state: 'CA',
@@ -36,12 +36,12 @@ export class ClientService {
     {
       id: '2',
       displayName: 'Company B',
-      firstName : 'David',
-      lastName : 'Muller',
-      email : 'davidm@gmail.com',
-      phone : '3109725678',
-      nameOnCheck : 'Company B',
-      billingAddress : {
+      firstName: 'David',
+      lastName: 'Muller',
+      email: 'davidm@gmail.com',
+      phone: '3109725678',
+      nameOnCheck: 'Company B',
+      billingAddress: {
         address1: '456 Western St',
         address2: 'Suite #123',
         city: 'Hawthorne',
@@ -49,7 +49,7 @@ export class ClientService {
         zipCode: '96789',
         country: 'US'
       },
-      shippingAddress : {
+      shippingAddress: {
         address1: '456 Western St',
         address2: 'Suite #333',
         city: 'Hawthorne',
@@ -63,12 +63,12 @@ export class ClientService {
     {
       id: '3',
       displayName: 'Company C',
-      firstName : 'Tin',
-      lastName : 'Authur',
-      email : 'tint@gmail.com',
-      phone : '3109729010',
-      nameOnCheck : 'Company C',
-      billingAddress : {
+      firstName: 'Tin',
+      lastName: 'Authur',
+      email: 'tint@gmail.com',
+      phone: '3109729010',
+      nameOnCheck: 'Company C',
+      billingAddress: {
         address1: '789 Marine St',
         address2: 'Suite #444',
         city: 'Irvine',
@@ -76,7 +76,7 @@ export class ClientService {
         zipCode: '99012',
         country: 'US'
       },
-      shippingAddress : {
+      shippingAddress: {
         address1: '789 Marine St',
         address2: 'Suite #687',
         city: 'Irvine',
@@ -90,18 +90,18 @@ export class ClientService {
     {
       id: '4',
       displayName: 'Company B',
-      firstName : 'David',
-      lastName : 'Muller',
-      email : 'davidm@gmail.com',
-      phone : '3109725678',
-      nameOnCheck : 'Company B',
-      billingAddress : {
+      firstName: 'David',
+      lastName: 'Muller',
+      email: 'davidm@gmail.com',
+      phone: '3109725678',
+      nameOnCheck: 'Company B',
+      billingAddress: {
         address1: '456 Western St',
         city: 'Hawthorne',
         state: 'CA',
         zipCode: '96789'
       },
-      shippingAddress : {
+      shippingAddress: {
         address1: '456 Western St',
         city: 'Hawthorne',
         state: 'CA',
@@ -113,18 +113,18 @@ export class ClientService {
     {
       id: '5',
       displayName: 'Company B',
-      firstName : 'David',
-      lastName : 'Muller',
-      email : 'davidm@gmail.com',
-      phone : '3109725678',
-      nameOnCheck : 'Company B',
-      billingAddress : {
+      firstName: 'David',
+      lastName: 'Muller',
+      email: 'davidm@gmail.com',
+      phone: '3109725678',
+      nameOnCheck: 'Company B',
+      billingAddress: {
         address1: '456 Western St',
         city: 'Hawthorne',
         state: 'CA',
         zipCode: '96789'
       },
-      shippingAddress : {
+      shippingAddress: {
         address1: '456 Western St',
         city: 'Hawthorne',
         state: 'CA',
@@ -136,18 +136,18 @@ export class ClientService {
     {
       id: '6',
       displayName: 'Company B',
-      firstName : 'David',
-      lastName : 'Muller',
-      email : 'davidm@gmail.com',
-      phone : '3109725678',
-      nameOnCheck : 'Company B',
-      billingAddress : {
+      firstName: 'David',
+      lastName: 'Muller',
+      email: 'davidm@gmail.com',
+      phone: '3109725678',
+      nameOnCheck: 'Company B',
+      billingAddress: {
         address1: '456 Western St',
         city: 'Hawthorne',
         state: 'CA',
         zipCode: '96789'
       },
-      shippingAddress : {
+      shippingAddress: {
         address1: '456 Western St',
         city: 'Hawthorne',
         state: 'CA',
@@ -159,18 +159,18 @@ export class ClientService {
     {
       id: '7',
       displayName: 'Company B',
-      firstName : 'David',
-      lastName : 'Muller',
-      email : 'davidm@gmail.com',
-      phone : '3109725678',
-      nameOnCheck : 'Company B',
-      billingAddress : {
+      firstName: 'David',
+      lastName: 'Muller',
+      email: 'davidm@gmail.com',
+      phone: '3109725678',
+      nameOnCheck: 'Company B',
+      billingAddress: {
         address1: '456 Western St',
         city: 'Hawthorne',
         state: 'CA',
         zipCode: '96789'
       },
-      shippingAddress : {
+      shippingAddress: {
         address1: '456 Western St',
         city: 'Hawthorne',
         state: 'CA',
@@ -205,5 +205,4 @@ export class ClientService {
     this.clientList.push(client);
     return true; // change later when using a real db
   }
-
 }

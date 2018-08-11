@@ -8,7 +8,7 @@ import { Invoice } from '../models/invoice';
 })
 export class InvoiceService {
   invoices: Invoice[];
-  constructor() { }
+  constructor() {}
 
   addInvoice(invoice: Invoice): void {
     console.log('Submited Invoice:', invoice);

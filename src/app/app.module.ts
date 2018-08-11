@@ -8,8 +8,6 @@ import { MaterialModule } from './material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-
-
 // Components
 import { AppComponent } from './app.component';
 import { WrapperComponent } from './components/dash-board/wrapper/wrapper.component';
@@ -51,12 +49,9 @@ import { ClientService } from './services/client.service';
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
-    FlexLayoutModule,
+    FlexLayoutModule
   ],
-  providers: [
-    InvoiceService,
-    ClientService
-  ],
+  providers: [InvoiceService, ClientService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

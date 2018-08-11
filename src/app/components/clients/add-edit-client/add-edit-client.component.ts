@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
 // Services
 import { ClientService } from '../../../services/client.service';
 
@@ -16,12 +16,11 @@ export class AddEditClientComponent implements OnInit {
   sameAsBilling: Boolean = false;
   addClientError: Boolean = false;
 
-  constructor(private clientService: ClientService, private router: Router) { }
+  constructor(private clientService: ClientService, private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  addClient() : void {
+  addClient(): void {
     if (!this.clientService.addClient(this.client)) {
       this.addClientError = true;
     } else {
@@ -30,9 +29,9 @@ export class AddEditClientComponent implements OnInit {
     }
   }
 
-  copyBilling () : void {
+  copyBilling(): void {
     if (!this.sameAsBilling) {
-      this.client.shippingAddress = { ...this.client.billingAddress};
+      this.client.shippingAddress = { ...this.client.billingAddress };
     } else {
       this.client.shippingAddress.address1 = '';
       this.client.shippingAddress.address2 = '';
@@ -42,11 +41,11 @@ export class AddEditClientComponent implements OnInit {
     }
   }
 
-  phoneChange (): void {
+  phoneChange(): void {
     // ToDo: format phone
   }
 
-  billingAddress1Change (event): void {
+  billingAddress1Change(event): void {
     if (this.sameAsBilling) {
       this.client.shippingAddress.address1 = event.target.value;
     }

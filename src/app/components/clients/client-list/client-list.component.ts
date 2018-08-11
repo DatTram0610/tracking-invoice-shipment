@@ -13,18 +13,16 @@ import { Client } from '../../../models/client';
   templateUrl: './client-list.component.html',
   styleUrls: ['./client-list.component.less']
 })
-
 export class ClientListComponent implements OnInit {
   displayedColumns: string[] = ['date', 'name', 'email', 'actions'];
   dataSource: MatTableDataSource<Client>;
 
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort)
+  sort: MatSort;
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator;
 
-  constructor(
-    private clientService: ClientService,
-    private router: Router
-  ) { }
+  constructor(private clientService: ClientService, private router: Router) {}
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.clientService.getClients());

@@ -16,10 +16,7 @@ export class ClientDetailComponent implements OnInit {
   client: Client;
   isBillingAndShippingSame: boolean;
 
-  constructor(
-    private clientService: ClientService,
-    private router: Router
-  ) { }
+  constructor(private clientService: ClientService, private router: Router) {}
 
   ngOnInit() {
     this.client = this.clientService.getCurrentClient();
@@ -40,5 +37,4 @@ export class ClientDetailComponent implements OnInit {
     this.clientService.deleteClient(this.client.id);
     this.router.navigate(['/clients']);
   }
-
 }

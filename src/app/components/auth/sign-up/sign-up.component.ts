@@ -7,14 +7,11 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./sign-up.component.less']
 })
 export class SignUpComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSubmit(form: NgForm): void {
     console.log('Form:', form.value);
   }
-
 }

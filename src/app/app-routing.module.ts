@@ -11,18 +11,18 @@ import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 import { ClientDetailComponent } from './components/clients/client-detail/client-detail.component';
 
 const routes: Routes = [
-    { path: '', component: WelcomeComponent},
-    { path: 'sign-in', component: SignInComponent},
-    { path: 'sign-up', component: SignUpComponent},
-    { path: 'invoices', component: InvoiceListComponent},
-    { path: 'clients', component: ClientListComponent},
-    { path: 'clients/:clientId', component: ClientDetailComponent},
-    { path: 'clients/add-edit-client/', component: AddEditClientComponent},
-    { path: 'clients/add-edit-client/:id', component: AddEditClientComponent}
+  { path: '', component: WelcomeComponent },
+  { path: 'sign-in', component: SignInComponent },
+  { path: 'sign-up', component: SignUpComponent },
+  { path: 'invoices', component: InvoiceListComponent },
+  { path: 'clients', component: ClientListComponent },
+  { path: 'clients/:clientId', component: ClientDetailComponent },
+  { path: 'clients/add-edit-client/', component: AddEditClientComponent },
+  { path: 'clients/add-edit-client/:id', component: AddEditClientComponent }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}
