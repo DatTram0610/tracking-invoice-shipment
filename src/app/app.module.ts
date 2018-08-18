@@ -10,7 +10,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Components
 import { AppComponent } from './app.component';
-import { WrapperComponent } from './components/dash-board/wrapper/wrapper.component';
 import { InvoiceFormComponent } from './components/invoice/invoice-form/invoice-form.component';
 import { WelcomeComponent } from './components/dash-board/welcome/welcome.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
@@ -29,7 +28,6 @@ import { ClientService } from './services/client.service';
 @NgModule({
   declarations: [
     AppComponent,
-    WrapperComponent,
     InvoiceFormComponent,
     WelcomeComponent,
     InvoiceListComponent,

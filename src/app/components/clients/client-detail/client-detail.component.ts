@@ -20,9 +20,7 @@ export class ClientDetailComponent implements OnInit {
 
   ngOnInit() {
     this.client = this.clientService.getCurrentClient();
-    console.log('Current View Client:', this.client);
     this.isBillingAndShippingSame = this.compareBillingAndShippingAddress();
-    console.log('Same:', this.isBillingAndShippingSame);
   }
 
   compareBillingAndShippingAddress(): boolean {
@@ -30,7 +28,7 @@ export class ClientDetailComponent implements OnInit {
   }
 
   editClient(): void {
-    this.router.navigate(['/clients/add-edit-client', this.client.id]);
+    this.router.navigate(['/add-edit-client', this.client.id]);
   }
 
   deleteClient(): void {

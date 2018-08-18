@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav-list',
@@ -8,11 +9,12 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class SidenavListComponent implements OnInit {
   @Output()
   closeSideNav = new EventEmitter<void>();
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
-  onClose() {
+  onClose(path: string): void {
     this.closeSideNav.emit();
+    this.router.navigate([`${path}`]);
   }
 }

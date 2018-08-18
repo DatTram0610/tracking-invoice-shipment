@@ -17,8 +17,8 @@ const routes: Routes = [
   { path: 'invoices', component: InvoiceListComponent },
   { path: 'clients', component: ClientListComponent },
   { path: 'clients/:clientId', component: ClientDetailComponent },
-  { path: 'clients/add-edit-client/', component: AddEditClientComponent },
-  { path: 'clients/add-edit-client/:id', component: AddEditClientComponent }
+  { path: 'add-edit-client', component: AddEditClientComponent },
+  { path: 'add-edit-client/:id', component: AddEditClientComponent }
 ];
 
 @NgModule({

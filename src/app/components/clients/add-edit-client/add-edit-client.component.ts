@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 // Services
 import { ClientService } from '../../../services/client.service';
 
@@ -12,15 +12,30 @@ import { Client } from '../../../models/client';
   styleUrls: ['./add-edit-client.component.less']
 })
 export class AddEditClientComponent implements OnInit {
-  client: Client = new Client();
+  client: Client;
   sameAsBilling: Boolean = false;
   addClientError: Boolean = false;
+  isAddingClient: boolean;
+  submitButtonText: string;
 
-  constructor(private clientService: ClientService, private router: Router) {}
+  constructor(private clientService: ClientService, private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('Url:', this.router.url);
+    console.log(this.route.snapshot.params['id']);
+    if (this.route.snapshot.params['id']) {
+      this.client = this.clientService.getCurrentClient();
+      this.isAddingClient = false;
+      this.submitButtonText = 'Update Client';
+      console.log(this.client);
+    } else {
+      this.client = new Client();
+      this.isAddingClient = true;
+      this.submitButtonText = 'Add Client';
+    }
+  }
 
-  addClient(): void {
+  submitClient(): void {
     if (!this.clientService.addClient(this.client)) {
       this.addClientError = true;
     } else {

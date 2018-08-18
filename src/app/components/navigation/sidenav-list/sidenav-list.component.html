@@ -1,6 +1,18 @@
 <mat-nav-list>
-  <a mat-list-item routerLink="/sign-up" (click)="onClose()">Signup</a>
-  <a mat-list-item routerLink="/sign-in" (click)="onClose()">Login</a>
-  <a mat-list-item routerLink="/invoices" (click)="onClose()">Invoices</a>
-  <a mat-list-item routerLink="/clients" (click)="onClose()">Clients</a>
+  <a mat-list-item routerLink="/invoices" [matMenuTriggerFor]="invoice">Invoices</a>
+  <mat-menu #invoice="matMenu">
+    <button mat-menu-item (click)="onClose('test')">Item 1</button>
+    <button mat-menu-item (click)="onClose('test')">Item 2</button>
+  </mat-menu>
+  <a mat-list-item [matMenuTriggerFor]="client">Clients</a>
+  <mat-menu #client="matMenu">
+    <button mat-menu-item (click)="onClose('/clients')" >Clients</button>
+    <button mat-menu-item (click)="onClose('/add-edit-client')" >New Client</button>
+  </mat-menu>
 </mat-nav-list>
+
+<!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu> -->
