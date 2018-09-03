@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 // Models
 import { Client } from '../models/client';
@@ -181,7 +182,7 @@ export class ClientService {
     }
   ];
   currentClient: Client;
-  constructor() {}
+  constructor(private router: Router) {}
 
   getClients(): Client[] {
     return this.clientList;
@@ -192,6 +193,10 @@ export class ClientService {
   }
 
   getCurrentClient(): Client {
+    if (!this.currentClient) {
+      this.router.navigate(['/clients']);
+      return;
+    }
     return this.currentClient;
   }
 

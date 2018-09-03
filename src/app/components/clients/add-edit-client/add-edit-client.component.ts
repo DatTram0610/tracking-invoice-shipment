@@ -21,13 +21,10 @@ export class AddEditClientComponent implements OnInit {
   constructor(private clientService: ClientService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    console.log('Url:', this.router.url);
-    console.log(this.route.snapshot.params['id']);
     if (this.route.snapshot.params['id']) {
       this.client = this.clientService.getCurrentClient();
       this.isAddingClient = false;
       this.submitButtonText = 'Update Client';
-      console.log(this.client);
     } else {
       this.client = new Client();
       this.isAddingClient = true;
