@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-md-6 offset-md-1">
+    <div class="client-detail">
+      <div class="client-detail-header">
+        <h2>{{client.displayName}} </h2>
+        <p>Client ID #{{client.id}}</p>
+      </div>
+      <hr class="dividing-line">
+      <div class="client-detail-section">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="client-detail-section-header">
+              <h5>Billing Address</h5>
+            </div>
+          </div>
+          <div class="col-md-6 offset-md-1">
+            <div class="client-detail-section-body">
+              <p>{{client.billingAddress.address1}}</p>
+              <p *ngIf="client.billingAddress.address2">{{client.billingAddress.address2}}</p>
+              <p>{{client.billingAddress.city}} {{client.billingAddress.state}} {{client.billingAddress.zipCode }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="client-detail-section">
+        <div class="row" *ngIf="!isBillingAndShippingSame">
+          <div class="col-md-4">
+            <div class="client-detail-section-header">
+              <h5>Shipping Address</h5>
+            </div>
+          </div>
+          <div class="col-md-6 offset-md-1">
+            <div class="client-detail-section-body">
+              <p>{{client.shippingAddress.address1}}</p>
+              <p *ngIf="client.billingAddress.address2">{{client.billingAddress.address2}}</p>
+              <p>{{client.shippingAddress.city}} {{client.shippingAddress.state}} {{client.shippingAddress.zipcode }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="client-detail-section">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="client-detail-section-header">
+              <h5>Contact Information</h5>
+            </div>
+          </div>
+          <div class="col-md-6 offset-md-1">
+            <div class="client-detail-section-body">
+              <p>
+                <span class="contact">Phone:</span> {{client.phone}}</p>
+              <p>
+                <span class="contact">Email:</span>
+                <a href="mailto:{{client.email}}"> {{client.email}}</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <hr class="dividing-line">
+          <button type="button" class="btn btn-danger" (click)="deleteClient()">Delete</button>
+          <button type="button" class="btn btn-warning" (click)="editClient()">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cold-md-4 offset-md-1">
+    <div class="containers">
+      <div *ngIf="client.containers; else no_containers">
+        <div *ngFor="let container of client.containers">
+          {{container}}
+        </div>
+      </div>
+      <ng-template #no_containers>No containers available</ng-template>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<mat-nav-list>
+  <a mat-list-item (click)="navListSectionClicked('invoice')">
+    <p>Invoices</p>
+    <span *ngIf="this.currentSelection === 'invoice' && !expandable" class="drop-down-icon"><mat-icon>expand_more</mat-icon></span>
+    <span *ngIf="this.currentSelection === 'invoice' && expandable" class="drop-down-icon"><mat-icon>expand_less</mat-icon></span>
+  </a>
+  <div *ngIf="this.currentSelection === 'invoice' && expandable">
+    <div class="sub-navbar">
+      <p class="sub-navbar-title">Invoices</p>
+    </div>
+    <div class="sub-navbar">
+      <p class="sub-navbar-title">New Invoice</p>
+    </div>
+  </div>
+  <a mat-list-item (click)="navListSectionClicked('client')">
+    <p>Clients</p>
+    <span *ngIf="this.currentSelection === 'client' && !expandable" class="drop-down-icon"><mat-icon>expand_more</mat-icon></span>
+    <span *ngIf="this.currentSelection === 'client' && expandable" class="drop-down-icon"><mat-icon>expand_less</mat-icon></span>
+  </a>
+  <div *ngIf="this.currentSelection === 'client' && expandable">
+    <div class="sub-navbar" (click)="onClose('/clients')">
+      <p class="sub-navbar-title">Client List</p>
+    </div>
+    <div class="sub-navbar" (click)="onClose('/add-edit-client')">
+      <p class="sub-navbar-title">New Client</p>
+    </div>
+  </div>
+</mat-nav-list>

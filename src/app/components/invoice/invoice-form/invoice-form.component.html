@@ -1,0 +1,100 @@
+<div class="tracking-form">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="form-header">
+        <h5>New Invoice</h5>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form #invoiceForm="ngForm" (ngSubmit)="submitInvoice()">
+        <div class="form-group">
+          <label for="clientFirstName">Client First Name</label>
+          <input type="text" class="form-control" id="clientFirstName" name="clientFirstName" placeholder="First Name" required [(ngModel)]="invoice.clientFirstName">
+        </div>
+        <div class="form-group">
+          <label for="clientLastName">Client Last Name</label>
+          <input type="text" class="form-control" id="clientLastName" name="clientLastName" placeholder="Last Name" required [(ngModel)]="invoice.clientLastName">
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" id="address" name="address" placeholder="Address" required [(ngModel)]="invoice.address">
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" class="form-control" id="city" name="city" placeholder="City" required [(ngModel)]="invoice.city">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="state">State</label>
+              <input type="text" class="form-control" id="state" name="state" placeholder="State" required [(ngModel)]="invoice.state">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="zipCode">Zip Code</label>
+              <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="Zip Code" required [(ngModel)]="invoice.zipCode">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fee">Fee</label>
+          <input type="text" class="form-control" id="fee" name="fee" placeholder="Fee" required [(ngModel)]="invoice.fee">
+        </div>
+        <div class="container-list" *ngIf="invoice.container.length > 0">
+          <label for="containerList">Container List</label>
+          <div class="card" *ngFor="let container of invoice.container; let i = index ">
+            <div class="card-body">
+              <h6 class="card-title">Container ID: {{container.id}}</h6>
+              <h6 class="card-title">Container Color: {{container.color}}</h6>
+              <p class="card-text" *ngIf="container.description">{{container.description}}</p>
+              <button type="button" class="btn btn-info container-btn" (click)="editContainer(i, container)">Edit</button>
+              <button type="button" class="btn btn-danger container-btn" (click)="removeContainer(i)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="form-shipment">
+          <div class="form-shipment-add">
+            <button type="button" class="btn btn-default" *ngIf="!isAddingContainer && !isEditingContainer" (click)="showNewContainerForm()">
+              New Container
+            </button>
+            <button type="button" class="btn btn-default" *ngIf="isAddingContainer && !isEditingContainer" (click)="addNewContainer()">
+              Add
+            </button>
+            <button type="button" class="btn btn-default" *ngIf="!isAddingContainer && isEditingContainer" (click)="saveEditContainer()">
+              Save
+            </button>
+          </div>
+          <div class="form-shipment-form" *ngIf="isAddingContainer || isEditingContainer">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="containerId">Container Id</label>
+                  <input type="text" class="form-control" id="containerId" name="containerId" placeholder="Id" required [(ngModel)]="container.id">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="containerColor">Container Color</label>
+                  <input type="text" class="form-control" id="containerColor" name="containerColor" placeholder="Color" required [(ngModel)]="container.color">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="containerDescription">Container Description</label>
+              <input type="text" class="form-control" id="containerDescription" name="containerDescription" placeholder="Description" required
+                [(ngModel)]="container.description">
+            </div>
+          </div>
+        </div>
+        <div class="form-submission">
+          <button type="submit" class="btn btn-primary">Submit Invoice</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
