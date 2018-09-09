@@ -9,12 +9,14 @@ import { AddEditClientComponent } from './components/clients/add-edit-client/add
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 import { ClientDetailComponent } from './components/clients/client-detail/client-detail.component';
+import { InvoiceFormComponent } from './components/invoice/invoice-form/invoice-form.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'invoices', component: InvoiceListComponent },
+  { path: 'add-edit-invoice', component: InvoiceFormComponent },
   { path: 'clients', component: ClientListComponent },
   { path: 'clients/:clientId', component: ClientDetailComponent },
   { path: 'add-edit-client', component: AddEditClientComponent },
