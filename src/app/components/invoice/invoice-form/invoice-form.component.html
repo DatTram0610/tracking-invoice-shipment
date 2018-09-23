@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-8">
       <div class="contrast-container">
-        <div class="container client-form">
+        <div class="form">
           <form #clientForm="ngForm" (ngSubmit)="submitClient()">
             <h5>Contact Information</h5>
             <div class="row">
@@ -42,7 +42,8 @@
               <div class="row-item col-sm-6">
                 <mat-form-field appearance="outline">
                   <mat-label>Phone</mat-label>
-                  <input matInput placeholder="Phone number" [(ngModel)]="invoice.client.phone" type="tel" name="phone" (input)="phoneChange()">
+                  <input matInput placeholder="Phone number" [(ngModel)]="invoice.client.phone" type="tel" name="phone"
+                    (input)="phoneChange()">
                 </mat-form-field>
               </div>
               <div class="row-item col-sm-6">
@@ -58,13 +59,15 @@
               <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>Address 1</mat-label>
-                  <input matInput placeholder="Street and number" [(ngModel)]="invoice.client.billingAddress.address1" type="text" name="billingAddress1" (input)="billingAddress1Change($event)">
+                  <input matInput placeholder="Street and number" [(ngModel)]="invoice.client.billingAddress.address1"
+                    type="text" name="billingAddress1" (input)="billingAddress1Change($event)">
                 </mat-form-field>
               </div>
               <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>Address 2</mat-label>
-                  <input matInput placeholder="Suite, unit, building, floor, etc." [(ngModel)]="invoice.client.billingAddress.address2" type="text" name="billingAddress2" (input)="billingAddress2Change($event)">
+                  <input matInput placeholder="Suite, unit, building, floor, etc." [(ngModel)]="invoice.client.billingAddress.address2"
+                    type="text" name="billingAddress2" (input)="billingAddress2Change($event)">
                 </mat-form-field>
               </div>
             </div>
@@ -73,19 +76,22 @@
               <div class="col-sm-4 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>City</mat-label>
-                  <input matInput placeholder="City" [(ngModel)]="invoice.client.billingAddress.city" type="text" name="billingCity" (input)="billingCityChange($event)">
+                  <input matInput placeholder="City" [(ngModel)]="invoice.client.billingAddress.city" type="text" name="billingCity"
+                    (input)="billingCityChange($event)">
                 </mat-form-field>
               </div>
               <div class="col-sm-4 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>State / Province</mat-label>
-                  <input matInput placeholder="State / Province" [(ngModel)]="invoice.client.billingAddress.state" type="text" name="billingState" (input)="billingStateChange($event)">
+                  <input matInput placeholder="State / Province" [(ngModel)]="invoice.client.billingAddress.state" type="text"
+                    name="billingState" (input)="billingStateChange($event)">
                 </mat-form-field>
               </div>
               <div class="col-sm-4 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>Zip Code</mat-label>
-                  <input matInput placeholder="Zip Code" [(ngModel)]="invoice.client.billingAddress.zipCode" type="text" name="billingZipCode" (input)="billingZipCodeChange($event)">
+                  <input matInput placeholder="Zip Code" [(ngModel)]="invoice.client.billingAddress.zipCode" type="text"
+                    name="billingZipCode" (input)="billingZipCodeChange($event)">
                 </mat-form-field>
               </div>
             </div>
@@ -103,13 +109,15 @@
               <div class="row-item col-sm-6">
                 <mat-form-field appearance="outline">
                   <mat-label>Address 1</mat-label>
-                  <input matInput placeholder="Street and number" [(ngModel)]="invoice.client.shippingAddress.address1" type="text" name="shippingAddress1" [disabled]="sameAsBilling">
+                  <input matInput placeholder="Street and number" [(ngModel)]="invoice.client.shippingAddress.address1"
+                    type="text" name="shippingAddress1" [disabled]="sameAsBilling">
                 </mat-form-field>
               </div>
               <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>Address 2</mat-label>
-                  <input matInput placeholder="Suite, unit, building, floor, etc." [(ngModel)]="invoice.client.shippingAddress.address2" type="text" name="shippingAddress2" [disabled]="sameAsBilling">
+                  <input matInput placeholder="Suite, unit, building, floor, etc." [(ngModel)]="invoice.client.shippingAddress.address2"
+                    type="text" name="shippingAddress2" [disabled]="sameAsBilling">
                 </mat-form-field>
               </div>
             </div>
@@ -118,32 +126,39 @@
               <div class="col-sm-4 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>City</mat-label>
-                  <input matInput placeholder="City" [(ngModel)]="invoice.client.shippingAddress.city" type="text" name="shippingCity" [disabled]="sameAsBilling">
+                  <input matInput placeholder="City" [(ngModel)]="invoice.client.shippingAddress.city" type="text" name="shippingCity"
+                    [disabled]="sameAsBilling">
                 </mat-form-field>
               </div>
               <div class="col-sm-4 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>State / Province</mat-label>
-                  <input matInput placeholder="State / Province" [(ngModel)]="invoice.client.shippingAddress.state" type="text" name="shippingState" [disabled]="sameAsBilling">
+                  <input matInput placeholder="State / Province" [(ngModel)]="invoice.client.shippingAddress.state"
+                    type="text" name="shippingState" [disabled]="sameAsBilling">
                 </mat-form-field>
               </div>
               <div class="col-sm-4 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>Zip Code</mat-label>
-                  <input matInput placeholder="Zip Code" [(ngModel)]="invoice.client.shippingAddress.zipCode" type="text" name="shippingZipCode" [disabled]="sameAsBilling">
+                  <input matInput placeholder="Zip Code" [(ngModel)]="invoice.client.shippingAddress.zipCode" type="text"
+                    name="shippingZipCode" [disabled]="sameAsBilling">
                 </mat-form-field>
               </div>
             </div>
           </form>
         </div>
       </div>
-      <div class="contrast-container">
-        <p>This area is for container form</p>
-      </div>
     </div>
     <div class="col-md-4">
       <div class="contrast-container">
         <p>This area will be determined later</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="contrast-container">
+        <app-container></app-container>
       </div>
     </div>
   </div>

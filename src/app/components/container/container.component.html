@@ -1,0 +1,89 @@
+<div class="container-list" *ngIf="containerList.length > 0">
+  <h5>Container List</h5>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Product/Service Column -->
+      <ng-container matColumnDef="product/service">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Product/Service </th>
+        <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.displayName}} </td>
+      </ng-container>
+
+      <!-- Quantity Column -->
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Quanity </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- Rate Column -->
+      <ng-container matColumnDef="rate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header disabled> Rate </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon matTooltip="View and Edit this company's information" (click)="goToClientDetail(element)">edit
+          </mat-icon>
+        </td>
+      </ng-container>
+
+      <!-- Quantity Column -->
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
+<div class="add-edit-container">
+  <h5>Add Container</h5>
+  <form #clientForm="ngForm" (ngSubmit)="addContainer()">
+    <div class="row">
+      <div class="col-md-3">
+        <mat-form-field appearance="standard">
+          <mat-label>Product/Service</mat-label>
+          <input matInput type="text" name="product" [(ngModel)]="currentContainer.product">
+        </mat-form-field>
+      </div>
+      <div class="col-md-5">
+        <mat-form-field appearance="standard">
+          <mat-label>Description</mat-label>
+          <input matInput type="text" name="description" [(ngModel)]="currentContainer.description">
+        </mat-form-field>
+      </div>
+      <div class="col-md-1">
+        <mat-form-field appearance="standard">
+          <mat-label>Qty</mat-label>
+          <input matInput type="number" name="quantity" [(ngModel)]="currentContainer.quantity">
+        </mat-form-field>
+      </div>
+      <div class="col-md-1">
+        <mat-form-field appearance="standard">
+          <mat-label>Rate</mat-label>
+          <input matInput type="number" name="rate" [(ngModel)]="currentContainer.rate">
+        </mat-form-field>
+      </div>
+      <div class="col-md-2">
+        <mat-form-field appearance="standard">
+          <mat-label>Amount</mat-label>
+          <input matInput type="number" name="amount" [(ngModel)]="currentContainer.amount">
+        </mat-form-field>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-default">Add</button>
+  </form>
+</div>
