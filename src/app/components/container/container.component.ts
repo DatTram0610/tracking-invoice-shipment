@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
 
 // Models
 import { Container } from '../../models/container';
+
+// Services
+import { InvoiceService } from '../../services/invoice.service';
 
 @Component({
   selector: 'app-container',
@@ -13,9 +16,15 @@ export class ContainerComponent implements OnInit {
   currentContainer: Container;
   containerList: Container[];
   containerId: number;
+  dataSource: MatTableDataSource<Container>;
   displayedColumns: string[] = ['product/service', 'description', 'quantity', 'rate', 'amount', 'actions'];
 
-  constructor() {}
+  @ViewChild(MatSort)
+  sort: MatSort;
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator;
+
+  constructor(private invoiceService: InvoiceService) {}
 
   ngOnInit(): void {
     this.currentContainer = new Container();
@@ -26,6 +35,9 @@ export class ContainerComponent implements OnInit {
   addContainer(): void {
     this.currentContainer.id = this.containerId;
     this.containerList.push(this.currentContainer);
+    this.dataSource = new MatTableDataSource(this.containerList);
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
     console.log('Adding container:', this.containerList);
   }
 }
