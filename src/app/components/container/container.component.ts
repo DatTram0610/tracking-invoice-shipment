@@ -53,9 +53,7 @@ export class ContainerComponent implements OnInit {
   }
 
   removeContainer(i: number): void {
-    console.log('Removing container');
     this.containerList.splice(i, 1);
-    console.log(this.containerList);
     this.dataSource = new MatTableDataSource(this.containerList);
   }
 }
