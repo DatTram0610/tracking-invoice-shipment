@@ -18,6 +18,7 @@ export class ContainerComponent implements OnInit {
   containerId: number;
   dataSource: MatTableDataSource<Container>;
   displayedColumns: string[] = ['product/service', 'description', 'quantity', 'rate', 'amount', 'actions'];
+  edittingPosition: number;
 
   @ViewChild(MatSort)
   sort: MatSort;
@@ -33,11 +34,28 @@ export class ContainerComponent implements OnInit {
   }
 
   addContainer(): void {
-    this.currentContainer.id = this.containerId;
-    this.containerList.push(this.currentContainer);
+    if (this.edittingPosition >= 0) {
+      this.containerList[this.edittingPosition] = this.currentContainer;
+      this.edittingPosition = -1;
+    } else {
+      this.currentContainer.id = this.containerId;
+      this.containerList.push(this.currentContainer);
+    }
+    this.currentContainer = new Container();
     this.dataSource = new MatTableDataSource(this.containerList);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    console.log('Adding container:', this.containerList);
+  }
+
+  editContainer(element: Container, i: number): void {
+    this.currentContainer = element;
+    this.edittingPosition = i;
+  }
+
+  removeContainer(i: number): void {
+    console.log('Removing container');
+    this.containerList.splice(i, 1);
+    console.log(this.containerList);
+    this.dataSource = new MatTableDataSource(this.containerList);
   }
 }

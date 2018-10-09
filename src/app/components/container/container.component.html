@@ -38,8 +38,10 @@
       <!-- Actions Column -->
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
-        <td mat-cell *matCellDef="let element">
-          <mat-icon matTooltip="View and Edit this company's information" (click)="editContainer(element)">edit
+        <td mat-cell *matCellDef="let element; let i = index;">
+          <mat-icon matTooltip="View and edit container" (click)="editContainer(element, i)" class="edit-icon">edit
+          </mat-icon>
+          <mat-icon matTooltip="View and edit container" (click)="removeContainer(i)" class="delete-icon">delete
           </mat-icon>
         </td>
       </ng-container>
