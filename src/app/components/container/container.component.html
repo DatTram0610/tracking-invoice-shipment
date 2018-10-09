@@ -1,6 +1,6 @@
 <div class="container-list" *ngIf="containerList.length > 0">
   <h5>Container List</h5>
-  <div class="mat-elevation-z8">
+  <div class="container-list__table">
     <table mat-table [dataSource]="dataSource" matSort>
 
       <!-- Product/Service Column -->
@@ -47,8 +47,6 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   </div>
 </div>
 <div class="add-edit-container">
