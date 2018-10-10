@@ -1,4 +1,4 @@
-<div class="container-list" *ngIf="invoiceService.currentInvoice?.container.length > 0">
+<div class="container-list" *ngIf="containerList.length > 0">
   <h5>Container List</h5>
   <div class="container-list__table">
     <table mat-table [dataSource]="dataSource" matSort>
@@ -82,7 +82,7 @@
       <div class="col-md-2">
         <mat-form-field appearance="standard">
           <mat-label>Amount</mat-label>
-          <input matInput type="number" name="amount" [(ngModel)]="currentContainer.amount" [value]="(currentContainer.quantity * currentContainer.rate)">
+          <input matInput type="number" name="amount" [(ngModel)]="currentContainer.amount">
         </mat-form-field>
       </div>
     </div>
