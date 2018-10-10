@@ -10,14 +10,20 @@ import { Container } from '../models/container';
 export class InvoiceService {
   currentInvoice: Invoice;
   invoices: Invoice[];
-  constructor() {}
+  constructor() {
+    this.currentInvoice = new Invoice();
+  }
 
   addInvoice(invoice: Invoice): void {
     console.log('Submited Invoice:', invoice);
   }
 
-  addContainers(containers: Container[]): void {
-    this.currentInvoice.container = containers;
+  addContainer(container: Container): void {
+    this.currentInvoice.container.push(container);
     console.log(this.currentInvoice.container);
+  }
+
+  getContainerList(): Container[] {
+    return this.currentInvoice.container;
   }
 }

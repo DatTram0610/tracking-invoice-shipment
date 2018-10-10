@@ -1,4 +1,4 @@
-<div class="container-list" *ngIf="containerList.length > 0">
+<div class="container-list" *ngIf="invoiceService.currentInvoice?.container.length > 0">
   <h5>Container List</h5>
   <div class="container-list__table">
     <table mat-table [dataSource]="dataSource" matSort>

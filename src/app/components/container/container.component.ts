@@ -14,7 +14,7 @@ import { InvoiceService } from '../../services/invoice.service';
 })
 export class ContainerComponent implements OnInit {
   currentContainer: Container;
-  containerList: Container[];
+  // containerList: Container[];
   containerId: number;
   dataSource: MatTableDataSource<Container>;
   displayedColumns: string[] = ['product/service', 'description', 'quantity', 'rate', 'amount', 'actions'];
@@ -29,20 +29,22 @@ export class ContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentContainer = new Container();
-    this.containerList = [];
+    // this.containerList = [];
     this.containerId = 1;
   }
 
   addContainer(): void {
     if (this.edittingPosition >= 0) {
-      this.containerList[this.edittingPosition] = this.currentContainer;
+      // this.containerList[this.edittingPosition] = this.currentContainer;
+      this.invoiceService.currentInvoice.container[this.edittingPosition] = this.currentContainer;
       this.edittingPosition = -1;
     } else {
       this.currentContainer.id = this.containerId;
-      this.containerList.push(this.currentContainer);
+      this.invoiceService.currentInvoice.container.push(this.currentContainer);
+      // this.containerList.push(this.currentContainer);
     }
     this.currentContainer = new Container();
-    this.dataSource = new MatTableDataSource(this.containerList);
+    this.dataSource = new MatTableDataSource(this.invoiceService.currentInvoice.container);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
@@ -53,7 +55,8 @@ export class ContainerComponent implements OnInit {
   }
 
   removeContainer(i: number): void {
-    this.containerList.splice(i, 1);
-    this.dataSource = new MatTableDataSource(this.containerList);
+    // this.containerList.splice(i, 1);
+    this.invoiceService.currentInvoice.container.splice(i, 1);
+    this.dataSource = new MatTableDataSource(this.invoiceService.currentInvoice.container);
   }
 }
