@@ -82,7 +82,7 @@
       <div class="col-md-2">
         <mat-form-field appearance="standard">
           <mat-label>Amount</mat-label>
-          <input matInput type="number" name="amount" [(ngModel)]="currentContainer.amount">
+          <input matInput type="number" name="amount" [(ngModel)]="currentContainer.amount" [value]="(currentContainer.quantity * currentContainer.rate)">
         </mat-form-field>
       </div>
     </div>
