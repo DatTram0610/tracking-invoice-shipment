@@ -29,6 +29,7 @@ export class InvoiceFormComponent implements OnInit {
   clientList: Client[];
   searchedClients: Client[];
   isSearchingClient: boolean;
+  testText: string;
 
   sameAsBilling: Boolean = false;
   addClientError: Boolean = false;
@@ -37,11 +38,11 @@ export class InvoiceFormComponent implements OnInit {
 
   searchClient = this.debounce.debounce(
     (clientName: string) => {
-      console.log('Search term', clientName);
       this.searchedClients = [];
       this.isSearchingClient = true;
       if (clientName === '') {
         this.searchedClients = [];
+        this.invoice.client = new Client();
       } else {
         for (const client of this.clientList) {
           if (client.displayName.toLocaleLowerCase().includes(clientName.toLowerCase())) {
@@ -125,6 +126,7 @@ export class InvoiceFormComponent implements OnInit {
 
   selectClient(client: Client): void {
     this.isSearchingClient = false;
+    this.testText = client.displayName;
     this.invoice.client = client;
   }
 }

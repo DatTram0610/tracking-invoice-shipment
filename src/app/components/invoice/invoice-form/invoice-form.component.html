@@ -13,8 +13,8 @@
                 <div class="client-name">
                   <mat-form-field appearance="outline">
                     <mat-label>Company Name</mat-label>
-                    <input matInput placeholder="Company Name" [(ngModel)]="invoice.client.displayName" type="text"
-                      name="company" (keyup)="searchClient(invoice.client.displayName)">
+                    <input matInput placeholder="Company Name" [(ngModel)]="testText" type="text"
+                      name="company" (keyup)="searchClient(testText)">
                   </mat-form-field>
                   <div class="client-list" *ngIf="(searchedClients.length > 0) && isSearchingClient">
                     <ul>
