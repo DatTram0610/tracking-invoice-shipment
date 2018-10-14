@@ -11,6 +11,7 @@ import { InvoiceService } from '../../../services/invoice.service';
 
 // Others
 import { Debounce } from '../../../helpers/debounce.helper';
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-invoice-form',
@@ -27,6 +28,7 @@ export class InvoiceFormComponent implements OnInit {
   client: Client;
   clientList: Client[];
   searchedClients: Client[];
+  isSearchingClient: boolean;
 
   sameAsBilling: Boolean = false;
   addClientError: Boolean = false;
@@ -37,6 +39,7 @@ export class InvoiceFormComponent implements OnInit {
     (clientName: string) => {
       console.log('Search term', clientName);
       this.searchedClients = [];
+      this.isSearchingClient = true;
       if (clientName === '') {
         this.searchedClients = [];
       } else {
@@ -48,7 +51,7 @@ export class InvoiceFormComponent implements OnInit {
       }
       console.log('Clients:', this.searchedClients);
     },
-    500,
+    300,
     false
   );
 
@@ -118,5 +121,10 @@ export class InvoiceFormComponent implements OnInit {
     if (this.sameAsBilling) {
       this.invoice.client.shippingAddress.zipCode = event.target.value;
     }
+  }
+
+  selectClient(client: Client): void {
+    this.isSearchingClient = false;
+    this.invoice.client = client;
   }
 }

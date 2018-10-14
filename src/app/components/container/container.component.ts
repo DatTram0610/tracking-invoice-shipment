@@ -36,11 +36,9 @@ export class ContainerComponent implements OnInit {
   addContainer(): void {
     if (this.edittingPosition >= 0) {
       this.containerList[this.edittingPosition] = this.currentContainer;
-      // this.invoiceService.currentInvoice.container[this.edittingPosition] = this.currentContainer;
       this.edittingPosition = -1;
     } else {
       this.currentContainer.id = this.containerId;
-      // this.invoiceService.currentInvoice.container.push(this.currentContainer);
       this.containerList.push(this.currentContainer);
     }
     this.currentContainer = new Container();

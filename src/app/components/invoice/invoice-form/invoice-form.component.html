@@ -10,15 +10,17 @@
             <h5>Contact Information</h5>
             <div class="row">
               <div class="row-item col-sm-12">
-                <mat-form-field appearance="outline">
-                  <mat-label>Company Name</mat-label>
-                  <input matInput placeholder="Company Name" [(ngModel)]="invoice.client.companyName" type="text" name="company"
-                    (keyup)="searchClient(invoice.client.companyName)">
-                </mat-form-field>
-                <div class="client-list" *ngIf="searchedClients.length > 0">
-                  <ul>
-                    <li *ngFor="let client of searchedClients">{{client.displayName}}</li>
-                  </ul>
+                <div class="client-name">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Company Name</mat-label>
+                    <input matInput placeholder="Company Name" [(ngModel)]="invoice.client.displayName" type="text"
+                      name="company" (keyup)="searchClient(invoice.client.displayName)">
+                  </mat-form-field>
+                  <div class="client-list" *ngIf="(searchedClients.length > 0) && isSearchingClient">
+                    <ul>
+                      <li *ngFor="let client of searchedClients" (click)="selectClient(client)">{{client.displayName}}</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
