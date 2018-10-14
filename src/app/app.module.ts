@@ -26,6 +26,9 @@ import { ContainerComponent } from './components/container/container.component';
 import { InvoiceService } from './services/invoice.service';
 import { ClientService } from './services/client.service';
 
+// Others
+import { Debounce } from './helpers/debounce.helper';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +54,7 @@ import { ClientService } from './services/client.service';
     AppRoutingModule,
     FlexLayoutModule
   ],
-  providers: [InvoiceService, ClientService],
+  providers: [InvoiceService, ClientService, Debounce],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

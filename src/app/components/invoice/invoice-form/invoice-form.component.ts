@@ -9,6 +9,9 @@ import { Invoice } from '../../../models/invoice';
 import { ClientService } from '../../../services/client.service';
 import { InvoiceService } from '../../../services/invoice.service';
 
+// Others
+import { Debounce } from '../../../helpers/debounce.helper';
+
 @Component({
   selector: 'app-invoice-form',
   templateUrl: './invoice-form.component.html',
@@ -22,15 +25,43 @@ export class InvoiceFormComponent implements OnInit {
   container: Container;
 
   client: Client;
+  clientList: Client[];
+  searchedClients: Client[];
+
   sameAsBilling: Boolean = false;
   addClientError: Boolean = false;
   isAddingClient: boolean;
   submitButtonText: string;
 
-  constructor(private clientService: ClientService, private invoiceService: InvoiceService) {}
+  searchClient = this.debounce.debounce(
+    (clientName: string) => {
+      console.log('Search term', clientName);
+      this.searchedClients = [];
+      if (clientName === '') {
+        this.searchedClients = [];
+      } else {
+        for (const client of this.clientList) {
+          if (client.displayName.toLocaleLowerCase().includes(clientName.toLowerCase())) {
+            this.searchedClients.push(client);
+          }
+        }
+      }
+      console.log('Clients:', this.searchedClients);
+    },
+    500,
+    false
+  );
+
+  constructor(
+    private clientService: ClientService,
+    private invoiceService: InvoiceService,
+    private debounce: Debounce
+  ) {}
 
   ngOnInit() {
     this.invoice = this.invoiceService.currentInvoice;
+    this.clientList = this.clientService.clientList;
+    this.searchedClients = [];
   }
 
   submitInvoice() {
