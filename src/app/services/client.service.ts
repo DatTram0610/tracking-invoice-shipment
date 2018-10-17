@@ -210,4 +210,9 @@ export class ClientService {
     this.clientList.push(client);
     return true; // change later when using a real db
   }
+
+  updateClient(client: Client): boolean {
+    this.clientList.push(client);
+    return true;
+  }
 }

@@ -20,6 +20,7 @@ import { HeaderComponent } from './components/navigation/header/header.component
 import { SidenavListComponent } from './components/navigation/sidenav-list/sidenav-list.component';
 import { ClientDetailComponent } from './components/clients/client-detail/client-detail.component';
 import { AddEditClientComponent } from './components/clients/add-edit-client/add-edit-client.component';
+import { ContainerComponent } from './components/container/container.component';
 
 // Services
 import { InvoiceService } from './services/invoice.service';
@@ -37,7 +38,8 @@ import { ClientService } from './services/client.service';
     HeaderComponent,
     SidenavListComponent,
     ClientDetailComponent,
-    AddEditClientComponent
+    AddEditClientComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,

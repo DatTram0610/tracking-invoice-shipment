@@ -1,24 +1,13 @@
 import { Container } from './container';
+import { Client } from './client';
 
 export class Invoice {
   invoiceNumber: number;
-  clientFirstName: string;
-  clientLastName: string;
-  address: string;
-  city: string;
-  state: string;
-  zipCode: string;
-  fee: number;
+  client: Client;
   container: Container[];
   constructor() {
     this.invoiceNumber = null;
-    this.clientFirstName = null;
-    this.clientLastName = null;
-    this.address = null;
-    this.city = null;
-    this.state = null;
-    this.zipCode = null;
-    this.fee = null;
+    this.client = new Client();
     this.container = [];
   }
 }

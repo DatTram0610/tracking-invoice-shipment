@@ -1,4 +1,4 @@
-<div class="container client-form">
+<div class="container form">
   <form #clientForm="ngForm" (ngSubmit)="submitClient()">
     <h2>Contact Information</h2>
     <div class="row">
@@ -6,8 +6,6 @@
         <mat-form-field appearance="outline">
           <mat-label>Title</mat-label>
           <input matInput placeholder="Title" type="text" [(ngModel)]="client.title" name="title">
-          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-          <!-- <mat-hint>Hint</mat-hint> -->
         </mat-form-field>
       </div>
       <div class="row-item col-sm-5">

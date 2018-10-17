@@ -1,100 +1,165 @@
-<div class="tracking-form">
+<div class="invoice">
+  <div class="page-header">
+    <h3>Create Invoice</h3>
+  </div>
   <div class="row">
-    <div class="col-md-4 offset-md-4">
-      <div class="form-header">
-        <h5>New Invoice</h5>
+    <div class="col-md-8">
+      <div class="contrast-container">
+        <div class="form">
+          <form #clientForm="ngForm" (ngSubmit)="submitClient()">
+            <h5>Contact Information</h5>
+            <div class="row">
+              <div class="row-item col-sm-2">
+                <mat-form-field appearance="outline">
+                  <mat-label>Title</mat-label>
+                  <input matInput placeholder="Title" [(ngModel)]="invoice.client.title" type="text" name="title">
+                </mat-form-field>
+              </div>
+              <div class="row-item col-sm-5">
+                <mat-form-field appearance="outline">
+                  <mat-label>First Name</mat-label>
+                  <input matInput placeholder="First Name" [(ngModel)]="invoice.client.firstName" type="text" name="first">
+                </mat-form-field>
+              </div>
+              <div class="row-item col-sm-5">
+                <mat-form-field appearance="outline">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput placeholder="Last Name" [(ngModel)]="invoice.client.lastName" type="text" name="last">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="row-item col-sm-12">
+                <mat-form-field appearance="outline">
+                  <mat-label>Company Name</mat-label>
+                  <input matInput placeholder="Company Name" [(ngModel)]="invoice.client.companyName" type="text" name="company">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="row-item col-sm-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Phone</mat-label>
+                  <input matInput placeholder="Phone number" [(ngModel)]="invoice.client.phone" type="tel" name="phone"
+                    (input)="phoneChange()">
+                </mat-form-field>
+              </div>
+              <div class="row-item col-sm-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email" [(ngModel)]="invoice.client.email" type="email" name="email">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <h5>Billing Address</h5>
+            <div class="row">
+              <div class="col-sm-6 row-item">
+                <mat-form-field appearance="outline">
+                  <mat-label>Address 1</mat-label>
+                  <input matInput placeholder="Street and number" [(ngModel)]="invoice.client.billingAddress.address1"
+                    type="text" name="billingAddress1" (input)="billingAddress1Change($event)">
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6 row-item">
+                <mat-form-field appearance="outline">
+                  <mat-label>Address 2</mat-label>
+                  <input matInput placeholder="Suite, unit, building, floor, etc." [(ngModel)]="invoice.client.billingAddress.address2"
+                    type="text" name="billingAddress2" (input)="billingAddress2Change($event)">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-4 row-item">
+                <mat-form-field appearance="outline">
+                  <mat-label>City</mat-label>
+                  <input matInput placeholder="City" [(ngModel)]="invoice.client.billingAddress.city" type="text" name="billingCity"
+                    (input)="billingCityChange($event)">
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 row-item">
+                <mat-form-field appearance="outline">
+                  <mat-label>State / Province</mat-label>
+                  <input matInput placeholder="State / Province" [(ngModel)]="invoice.client.billingAddress.state" type="text"
+                    name="billingState" (input)="billingStateChange($event)">
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 row-item">
+                <mat-form-field appearance="outline">
+                  <mat-label>Zip Code</mat-label>
+                  <input matInput placeholder="Zip Code" [(ngModel)]="invoice.client.billingAddress.zipCode" type="text"
+                    name="billingZipCode" (input)="billingZipCodeChange($event)">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row shipping-address-label">
+              <div class="col-sm-6">
+                <h5>Shipping Address</h5>
+              </div>
+              <div class="col-sm-6 same-as-billing-checkbox">
+                <mat-checkbox (click)="copyBilling()" name="sameAsBilling">Same as Billing Address</mat-checkbox>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="row-item col-sm-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Address 1</mat-label>
+                  <input matInput placeholder="Street and number" [(ngModel)]="invoice.client.shippingAddress.address1"
+                    type="text" name="shippingAddress1" [disabled]="sameAsBilling">
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6 row-item">
+                <mat-form-field appearance="outline">
+                  <mat-label>Address 2</mat-label>
+                  <input matInput placeholder="Suite, unit, building, floor, etc." [(ngModel)]="invoice.client.shippingAddress.address2"
+                    type="text" name="shippingAddress2" [disabled]="sameAsBilling">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-4 row-item">
+                <mat-form-field appearance="outline">
+                  <mat-label>City</mat-label>
+                  <input matInput placeholder="City" [(ngModel)]="invoice.client.shippingAddress.city" type="text" name="shippingCity"
+                    [disabled]="sameAsBilling">
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 row-item">
+                <mat-form-field appearance="outline">
+                  <mat-label>State / Province</mat-label>
+                  <input matInput placeholder="State / Province" [(ngModel)]="invoice.client.shippingAddress.state"
+                    type="text" name="shippingState" [disabled]="sameAsBilling">
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 row-item">
+                <mat-form-field appearance="outline">
+                  <mat-label>Zip Code</mat-label>
+                  <input matInput placeholder="Zip Code" [(ngModel)]="invoice.client.shippingAddress.zipCode" type="text"
+                    name="shippingZipCode" [disabled]="sameAsBilling">
+                </mat-form-field>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="contrast-container">
+        <p>This area will be determined later</p>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-      <form #invoiceForm="ngForm" (ngSubmit)="submitInvoice()">
-        <div class="form-group">
-          <label for="clientFirstName">Client First Name</label>
-          <input type="text" class="form-control" id="clientFirstName" name="clientFirstName" placeholder="First Name" required [(ngModel)]="invoice.clientFirstName">
-        </div>
-        <div class="form-group">
-          <label for="clientLastName">Client Last Name</label>
-          <input type="text" class="form-control" id="clientLastName" name="clientLastName" placeholder="Last Name" required [(ngModel)]="invoice.clientLastName">
-        </div>
-        <div class="form-group">
-          <label for="address">Address</label>
-          <input type="text" class="form-control" id="address" name="address" placeholder="Address" required [(ngModel)]="invoice.address">
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="city">City</label>
-              <input type="text" class="form-control" id="city" name="city" placeholder="City" required [(ngModel)]="invoice.city">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="state">State</label>
-              <input type="text" class="form-control" id="state" name="state" placeholder="State" required [(ngModel)]="invoice.state">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="zipCode">Zip Code</label>
-              <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="Zip Code" required [(ngModel)]="invoice.zipCode">
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="fee">Fee</label>
-          <input type="text" class="form-control" id="fee" name="fee" placeholder="Fee" required [(ngModel)]="invoice.fee">
-        </div>
-        <div class="container-list" *ngIf="invoice.container.length > 0">
-          <label for="containerList">Container List</label>
-          <div class="card" *ngFor="let container of invoice.container; let i = index ">
-            <div class="card-body">
-              <h6 class="card-title">Container ID: {{container.id}}</h6>
-              <h6 class="card-title">Container Color: {{container.color}}</h6>
-              <p class="card-text" *ngIf="container.description">{{container.description}}</p>
-              <button type="button" class="btn btn-info container-btn" (click)="editContainer(i, container)">Edit</button>
-              <button type="button" class="btn btn-danger container-btn" (click)="removeContainer(i)">Remove</button>
-            </div>
-          </div>
-        </div>
-        <div class="form-shipment">
-          <div class="form-shipment-add">
-            <button type="button" class="btn btn-default" *ngIf="!isAddingContainer && !isEditingContainer" (click)="showNewContainerForm()">
-              New Container
-            </button>
-            <button type="button" class="btn btn-default" *ngIf="isAddingContainer && !isEditingContainer" (click)="addNewContainer()">
-              Add
-            </button>
-            <button type="button" class="btn btn-default" *ngIf="!isAddingContainer && isEditingContainer" (click)="saveEditContainer()">
-              Save
-            </button>
-          </div>
-          <div class="form-shipment-form" *ngIf="isAddingContainer || isEditingContainer">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="containerId">Container Id</label>
-                  <input type="text" class="form-control" id="containerId" name="containerId" placeholder="Id" required [(ngModel)]="container.id">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="containerColor">Container Color</label>
-                  <input type="text" class="form-control" id="containerColor" name="containerColor" placeholder="Color" required [(ngModel)]="container.color">
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="containerDescription">Container Description</label>
-              <input type="text" class="form-control" id="containerDescription" name="containerDescription" placeholder="Description" required
-                [(ngModel)]="container.description">
-            </div>
-          </div>
-        </div>
-        <div class="form-submission">
-          <button type="submit" class="btn btn-primary">Submit Invoice</button>
-        </div>
-      </form>
+      <div class="contrast-container">
+        <app-container></app-container>
+      </div>
     </div>
   </div>
 </div>
