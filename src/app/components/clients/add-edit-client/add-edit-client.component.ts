@@ -38,12 +38,6 @@ export class AddEditClientComponent implements OnInit {
     } else {
       this.clientService.updateClient(this.client);
     }
-    // if (!this.clientService.addClient(this.client)) {
-    //   this.addClientError = true;
-    // } else {
-    //   this.addClientError = false;
-    //   this.router.navigate(['/clients']);
-    // }
   }
 
   copyBilling(): void {
