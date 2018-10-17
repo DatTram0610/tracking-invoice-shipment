@@ -11,7 +11,8 @@
     "pretty": "prettier --write \"./src/**/*.ts\"",
     "precommit": "npm run pretty && npm run lint",
     "postinstall": "ng build --aot -prod",
-    "start": "node server.js"
+    "start": "node server.js",
+    "start-ui": "ng serve --open"
   },
   "private": true,
   "dependencies": {
