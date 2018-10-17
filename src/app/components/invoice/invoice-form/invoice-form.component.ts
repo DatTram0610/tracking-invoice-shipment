@@ -11,7 +11,6 @@ import { InvoiceService } from '../../../services/invoice.service';
 
 // Others
 import { Debounce } from '../../../helpers/debounce.helper';
-import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-invoice-form',
@@ -35,6 +34,8 @@ export class InvoiceFormComponent implements OnInit {
   addClientError: Boolean = false;
   isAddingClient: boolean;
   submitButtonText: string;
+
+  term: number[];
 
   searchClient = this.debounce.debounce(
     (clientName: string) => {
@@ -63,9 +64,11 @@ export class InvoiceFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.invoice = this.invoiceService.currentInvoice;
+    // this.invoice = this.invoiceService.currentInvoice;
+    this.invoice = new Invoice();
     this.clientList = this.clientService.clientList;
     this.searchedClients = [];
+    this.term = [1, 3, 7, 10, 15];
   }
 
   submitInvoice() {

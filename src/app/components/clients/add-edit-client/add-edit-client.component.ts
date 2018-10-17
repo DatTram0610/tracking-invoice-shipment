@@ -19,6 +19,7 @@ export class AddEditClientComponent implements OnInit {
   submitButtonText: string;
 
   constructor(private clientService: ClientService, private router: Router, private route: ActivatedRoute) {}
+  term: number[];
 
   ngOnInit() {
     if (this.route.snapshot.params['id']) {
@@ -30,20 +31,17 @@ export class AddEditClientComponent implements OnInit {
       this.isAddingClient = true;
       this.submitButtonText = 'Add Client';
     }
+    this.term = [1, 3, 7, 10, 15];
   }
 
   submitClient(): void {
     if (this.isAddingClient) {
       this.clientService.addClient(this.client);
+      this.router.navigate(['/clients']);
     } else {
       this.clientService.updateClient(this.client);
+      this.router.navigate(['/clients']);
     }
-    // if (!this.clientService.addClient(this.client)) {
-    //   this.addClientError = true;
-    // } else {
-    //   this.addClientError = false;
-    //   this.router.navigate(['/clients']);
-    // }
   }
 
   copyBilling(): void {

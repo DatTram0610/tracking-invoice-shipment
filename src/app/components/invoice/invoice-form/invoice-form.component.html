@@ -13,8 +13,8 @@
                 <div class="client-name">
                   <mat-form-field appearance="outline">
                     <mat-label>Company Name</mat-label>
-                    <input matInput placeholder="Company Name" [(ngModel)]="testText" type="text"
-                      name="company" (keyup)="searchClient(testText)">
+                    <input matInput placeholder="Company Name" [(ngModel)]="testText" type="text" name="company"
+                      (keyup)="searchClient(testText)">
                   </mat-form-field>
                   <div class="client-list" *ngIf="(searchedClients.length > 0) && isSearchingClient">
                     <ul>
@@ -149,6 +149,17 @@
                   <input matInput placeholder="Zip Code" [(ngModel)]="invoice.client.shippingAddress.zipCode" type="text"
                     name="shippingZipCode" [disabled]="sameAsBilling">
                 </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <h5 class="section-header">Term</h5>
+              </div>
+              <div class="col-sm-12">
+                <select name="term" [(ngModel)]="invoice.client.term" class="term-select">
+                  <option *ngFor="let t of term" [ngValue]="t">{{t}}</option>
+                </select>
               </div>
             </div>
           </form>
