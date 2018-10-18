@@ -8,10 +8,12 @@ import { Client } from '../models/client';
   providedIn: 'root'
 })
 export class ClientService {
+  // Later clientList will be catched after a GET clientList request is made. Any thing relies on
+  // clientList will check the cach first before making a new request
   clientList: Client[] = [
     {
       id: '1',
-      displayName: 'Company A',
+      displayName: 'Bau',
       firstName: 'Daniel',
       lastName: 'Frank',
       email: 'danielf@gmail.com',
@@ -32,11 +34,12 @@ export class ClientService {
         zipCode: '90001'
       },
       createdDate: new Date('2015-04-25'),
-      updatedDate: new Date('2015-03-25')
+      updatedDate: new Date('2015-03-25'),
+      term: 1
     },
     {
       id: '2',
-      displayName: 'Company B',
+      displayName: 'Hao',
       firstName: 'David',
       lastName: 'Muller',
       email: 'davidm@gmail.com',
@@ -59,11 +62,12 @@ export class ClientService {
         country: 'US'
       },
       createdDate: new Date('2015-04-25'),
-      updatedDate: new Date('2015-03-25')
+      updatedDate: new Date('2015-03-25'),
+      term: 1
     },
     {
       id: '3',
-      displayName: 'Company C',
+      displayName: 'Cuong',
       firstName: 'Tin',
       lastName: 'Authur',
       email: 'tint@gmail.com',
@@ -86,11 +90,12 @@ export class ClientService {
         country: 'US'
       },
       createdDate: new Date('2015-05-23'),
-      updatedDate: new Date('2015-03-25')
+      updatedDate: new Date('2015-03-25'),
+      term: 1
     },
     {
       id: '4',
-      displayName: 'Company B',
+      displayName: 'Khuong',
       firstName: 'David',
       lastName: 'Muller',
       email: 'davidm@gmail.com',
@@ -109,11 +114,12 @@ export class ClientService {
         zipCode: '96789'
       },
       createdDate: new Date('2015-01-02'),
-      updatedDate: new Date('2015-03-25')
+      updatedDate: new Date('2015-03-25'),
+      term: 1
     },
     {
       id: '5',
-      displayName: 'Company B',
+      displayName: 'Tin',
       firstName: 'David',
       lastName: 'Muller',
       email: 'davidm@gmail.com',
@@ -132,11 +138,12 @@ export class ClientService {
         zipCode: '96789'
       },
       createdDate: new Date('2014-02-24'),
-      updatedDate: new Date('2015-03-25')
+      updatedDate: new Date('2015-03-25'),
+      term: 1
     },
     {
       id: '6',
-      displayName: 'Company B',
+      displayName: 'Vu',
       firstName: 'David',
       lastName: 'Muller',
       email: 'davidm@gmail.com',
@@ -155,11 +162,12 @@ export class ClientService {
         zipCode: '96789'
       },
       createdDate: new Date('2015-03-25'),
-      updatedDate: new Date('2015-03-25')
+      updatedDate: new Date('2015-03-25'),
+      term: 1
     },
     {
       id: '7',
-      displayName: 'Company B',
+      displayName: 'Vinh',
       firstName: 'David',
       lastName: 'Muller',
       email: 'davidm@gmail.com',
@@ -178,7 +186,8 @@ export class ClientService {
         zipCode: '96789'
       },
       createdDate: new Date('2015-03-25'),
-      updatedDate: new Date('2015-03-25')
+      updatedDate: new Date('2015-03-25'),
+      term: 1
     }
   ];
   currentClient: Client;

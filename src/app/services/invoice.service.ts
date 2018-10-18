@@ -26,4 +26,8 @@ export class InvoiceService {
   getContainerList(): Container[] {
     return this.currentInvoice.container;
   }
+
+  getCurrentInvoice(): Invoice {
+    return this.currentInvoice;
+  }
 }

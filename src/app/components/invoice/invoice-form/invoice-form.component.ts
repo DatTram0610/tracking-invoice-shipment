@@ -9,6 +9,9 @@ import { Invoice } from '../../../models/invoice';
 import { ClientService } from '../../../services/client.service';
 import { InvoiceService } from '../../../services/invoice.service';
 
+// Others
+import { Debounce } from '../../../helpers/debounce.helper';
+
 @Component({
   selector: 'app-invoice-form',
   templateUrl: './invoice-form.component.html',
@@ -22,70 +25,71 @@ export class InvoiceFormComponent implements OnInit {
   container: Container;
 
   client: Client;
+  clientList: Client[];
+  searchedClients: Client[];
+  isSearchingClient: boolean;
+  testText: string;
+
   sameAsBilling: Boolean = false;
   addClientError: Boolean = false;
   isAddingClient: boolean;
   submitButtonText: string;
 
-  constructor(private clientService: ClientService, private invoiceService: InvoiceService) {}
+  term: number[];
+
+  searchClient = this.debounce.debounce(
+    (clientName: string) => {
+      this.searchedClients = [];
+      this.isSearchingClient = true;
+      if (clientName === '') {
+        this.searchedClients = [];
+        this.invoice.client = new Client();
+      } else {
+        for (const client of this.clientList) {
+          if (client.displayName.toLocaleLowerCase().includes(clientName.toLowerCase())) {
+            this.searchedClients.push(client);
+          }
+        }
+      }
+      console.log('Clients:', this.searchedClients);
+    },
+    300,
+    false
+  );
+
+  constructor(
+    private clientService: ClientService,
+    private invoiceService: InvoiceService,
+    private debounce: Debounce
+  ) {}
 
   ngOnInit() {
+    // this.invoice = this.invoiceService.currentInvoice;
     this.invoice = new Invoice();
-    this.container = new Container();
-    this.isAddingContainer = false;
-    this.isEditingContainer = false;
-  }
-
-  showNewContainerForm(): void {
-    this.isAddingContainer = true;
-    this.isEditingContainer = false;
-  }
-
-  addNewContainer(): void {
-    this.isAddingContainer = false;
-    this.invoice.container.push(this.container);
-    this.container = new Container();
-    console.log('Container:', this.invoice.container);
-  }
-
-  saveEditContainer() {
-    this.invoice.container[this.currentEditingIndex] = this.container;
-    this.container = new Container();
-    this.isEditingContainer = false;
-  }
-
-  editContainer(index: number, container: Container): void {
-    console.log('Editing Index:', index);
-    this.isEditingContainer = true;
-    this.isAddingContainer = false;
-    this.container = container;
-    this.currentEditingIndex = index;
-  }
-
-  removeContainer(index: number): void {
-    console.log('Removing Index:', index);
-    this.invoice.container.splice(index, 1);
-    console.log('Container List:', this.invoice.container);
+    this.clientList = this.clientService.clientList;
+    this.searchedClients = [];
+    this.term = [1, 3, 7, 10, 15];
   }
 
   submitInvoice() {
-    let invoiceNumber = 0;
-    console.log(this.invoice);
-    this.invoice.invoiceNumber = invoiceNumber;
-    invoiceNumber++;
-    this.invoiceService.addInvoice(this.invoice);
-    this.invoice = new Invoice();
+    // let invoiceNumber = 0;
+    // console.log(this.invoice);
+    // this.invoice.invoiceNumber = invoiceNumber;
+    // invoiceNumber++;
+    // this.invoiceService.addInvoice(this.invoice);
+    // this.invoice = new Invoice();
+    console.log('Container list:', this.invoiceService.currentInvoice);
   }
 
   copyBilling(): void {
     if (!this.sameAsBilling) {
-      this.client.shippingAddress = { ...this.client.billingAddress };
+      this.invoice.client.shippingAddress = { ...this.invoice.client.billingAddress };
     } else {
-      this.client.shippingAddress.address1 = '';
-      this.client.shippingAddress.address2 = '';
-      this.client.shippingAddress.city = '';
-      this.client.shippingAddress.state = '';
-      this.client.shippingAddress.zipCode = '';
+      this.invoice.client.shippingAddress.address1 = '';
+      this.invoice.client.shippingAddress.address2 = '';
+      this.invoice.client.shippingAddress.city = '';
+      this.invoice.client.shippingAddress.state = '';
+      this.invoice.client.shippingAddress.zipCode = '';
     }
   }
 
@@ -95,32 +99,38 @@ export class InvoiceFormComponent implements OnInit {
 
   billingAddress1Change(event): void {
     if (this.sameAsBilling) {
-      this.client.shippingAddress.address1 = event.target.value;
+      this.invoice.client.shippingAddress.address1 = event.target.value;
     }
   }
 
   billingAddress2Change(event): void {
     if (this.sameAsBilling) {
-      this.client.shippingAddress.address2 = event.target.value;
+      this.invoice.client.shippingAddress.address2 = event.target.value;
     }
   }
 
   billingCityChange(event): void {
     if (this.sameAsBilling) {
-      this.client.shippingAddress.city = event.target.value;
+      this.invoice.client.shippingAddress.city = event.target.value;
     }
   }
 
   billingStateChange(event): void {
     if (this.sameAsBilling) {
-      this.client.shippingAddress.state = event.target.value;
+      this.invoice.client.shippingAddress.state = event.target.value;
     }
   }
 
   billingZipCodeChange(event): void {
     if (this.sameAsBilling) {
-      this.client.shippingAddress.zipCode = event.target.value;
+      this.invoice.client.shippingAddress.zipCode = event.target.value;
     }
+  }
+
+  selectClient(client: Client): void {
+    this.isSearchingClient = false;
+    this.testText = client.displayName;
+    this.invoice.client = client;
   }
 
   submitClient(): void {

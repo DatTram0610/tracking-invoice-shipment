@@ -24,6 +24,7 @@ export class Client {
   createdDate?: Date;
   updatedDate?: Date;
   containers?: string[];
+  term: number;
 
   constructor() {
     this.displayName = '';
@@ -32,6 +33,7 @@ export class Client {
     this.email = '';
     this.phone = '';
     this.nameOnCheck = '';
+    this.term = null;
     this.billingAddress = new Address();
     this.shippingAddress = new Address();
   }
