@@ -132,4 +132,12 @@ export class InvoiceFormComponent implements OnInit {
     this.testText = client.displayName;
     this.invoice.client = client;
   }
+
+  submitClient(): void {
+    if (this.isAddingClient) {
+      this.clientService.addClient(this.client);
+    } else {
+      this.clientService.updateClient(this.client);
+    }
+  }
 }

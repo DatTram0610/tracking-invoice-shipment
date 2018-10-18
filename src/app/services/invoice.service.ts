@@ -11,7 +11,6 @@ export class InvoiceService {
   currentInvoice: Invoice;
   invoices: Invoice[];
   constructor() {
-    console.log('service invoice');
     this.currentInvoice = new Invoice();
   }
 
