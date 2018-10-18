@@ -39,6 +39,21 @@
         </div>
       </div>
       <div class="client-detail-section">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="client-detail-section-header">
+                <h5>Term</h5>
+              </div>
+            </div>
+            <div class="col-md-6 offset-md-1">
+              <div class="client-detail-section-body">
+                <p *ngIf="client.term === 1">{{client.term}} day</p>
+                <p *ngIf="client.term !== 1">{{client.term}} days</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="client-detail-section">
         <div class="row">
           <div class="col-md-4">
             <div class="client-detail-section-header">

@@ -34,7 +34,8 @@ export class ClientService {
         zipCode: '90001'
       },
       createdDate: new Date('2015-04-25'),
-      updatedDate: new Date('2015-03-25')
+      updatedDate: new Date('2015-03-25'),
+      term: 1
     },
     {
       id: '2',
@@ -61,7 +62,8 @@ export class ClientService {
         country: 'US'
       },
       createdDate: new Date('2015-04-25'),
-      updatedDate: new Date('2015-03-25')
+      updatedDate: new Date('2015-03-25'),
+      term: 1
     },
     {
       id: '3',
@@ -88,7 +90,8 @@ export class ClientService {
         country: 'US'
       },
       createdDate: new Date('2015-05-23'),
-      updatedDate: new Date('2015-03-25')
+      updatedDate: new Date('2015-03-25'),
+      term: 1
     },
     {
       id: '4',
@@ -111,7 +114,8 @@ export class ClientService {
         zipCode: '96789'
       },
       createdDate: new Date('2015-01-02'),
-      updatedDate: new Date('2015-03-25')
+      updatedDate: new Date('2015-03-25'),
+      term: 1
     },
     {
       id: '5',
@@ -134,7 +138,8 @@ export class ClientService {
         zipCode: '96789'
       },
       createdDate: new Date('2014-02-24'),
-      updatedDate: new Date('2015-03-25')
+      updatedDate: new Date('2015-03-25'),
+      term: 1
     },
     {
       id: '6',
@@ -157,7 +162,8 @@ export class ClientService {
         zipCode: '96789'
       },
       createdDate: new Date('2015-03-25'),
-      updatedDate: new Date('2015-03-25')
+      updatedDate: new Date('2015-03-25'),
+      term: 1
     },
     {
       id: '7',
@@ -180,7 +186,8 @@ export class ClientService {
         zipCode: '96789'
       },
       createdDate: new Date('2015-03-25'),
-      updatedDate: new Date('2015-03-25')
+      updatedDate: new Date('2015-03-25'),
+      term: 1
     }
   ];
   currentClient: Client;

@@ -9,7 +9,7 @@
           <form #clientForm="ngForm" (ngSubmit)="submitClient()">
             <h5>Contact Information</h5>
             <div class="row">
-              <div class="row-item col-sm-12">
+              <div class="row-item col-sm-10">
                 <div class="client-name">
                   <mat-form-field appearance="outline">
                     <mat-label>Company Name</mat-label>
@@ -22,6 +22,15 @@
                     </ul>
                   </div>
                 </div>
+              </div>
+              <div class="col-sm-2">
+                <mat-form-field appearance="outline">
+                  <mat-select placeholder="Term" [(ngModel)]="invoice.client.term" name="term">
+                    <mat-option *ngFor="let t of term" [value]="t">
+                      {{t}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
               </div>
             </div>
             <div class="row">
@@ -151,17 +160,6 @@
                 </mat-form-field>
               </div>
             </div>
-
-            <div class="row">
-              <div class="col-sm-12">
-                <h5 class="section-header">Term</h5>
-              </div>
-              <div class="col-sm-12">
-                <select name="term" [(ngModel)]="invoice.client.term" class="term-select">
-                  <option *ngFor="let t of term" [ngValue]="t">{{t}}</option>
-                </select>
-              </div>
-            </div>
           </form>
         </div>
       </div>
@@ -179,5 +177,9 @@
       </div>
     </div>
   </div>
-  <button type="button" (click)="submitInvoice()">Submit Invoice</button>
+  <div class="row">
+    <div class="col-md-2 offset-md-5">
+      <button type="button" (click)="submitInvoice()" class="btn btn-primary submit-btn">Submit Invoice</button>
+    </div>
+  </div>
 </div>
