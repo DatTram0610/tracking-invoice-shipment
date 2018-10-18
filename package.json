@@ -9,7 +9,7 @@
     "e2e": "ng e2e",
     "tslint": "tslint --project tsconfig.json --exclude **/node_modules/**/*",
     "pretty": "prettier --write \"./src/**/*.ts\"",
-    "precommit": "npm run pretty && npm run lint",
+    "prepush": "npm run pretty && npm run lint",
     "postinstall": "ng build --aot -prod",
     "start": "node server.js",
     "start-ui": "ng serve --open"
