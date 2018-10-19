@@ -28,6 +28,7 @@ import { ClientService } from './services/client.service';
 
 // Others
 import { Debounce } from './helpers/debounce.helper';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { Debounce } from './helpers/debounce.helper';
     SidenavListComponent,
     ClientDetailComponent,
     AddEditClientComponent,
-    ContainerComponent
+    ContainerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
