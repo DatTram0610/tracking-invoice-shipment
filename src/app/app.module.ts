@@ -21,6 +21,7 @@ import { SidenavListComponent } from './components/navigation/sidenav-list/siden
 import { ClientDetailComponent } from './components/clients/client-detail/client-detail.component';
 import { AddEditClientComponent } from './components/clients/add-edit-client/add-edit-client.component';
 import { ContainerComponent } from './components/container/container.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 // Services
 import { InvoiceService } from './services/invoice.service';
@@ -42,7 +43,8 @@ import { Debounce } from './helpers/debounce.helper';
     SidenavListComponent,
     ClientDetailComponent,
     AddEditClientComponent,
-    ContainerComponent
+    ContainerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
