@@ -22,6 +22,7 @@ import { ClientDetailComponent } from './components/clients/client-detail/client
 import { AddEditClientComponent } from './components/clients/add-edit-client/add-edit-client.component';
 import { ContainerComponent } from './components/container/container.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { Header1Component } from './components/header-1/header-1.component';
 
 // Services
 import { InvoiceService } from './services/invoice.service';
@@ -44,7 +45,8 @@ import { Debounce } from './helpers/debounce.helper';
     ClientDetailComponent,
     AddEditClientComponent,
     ContainerComponent,
-    FooterComponent
+    FooterComponent,
+    Header1Component
   ],
   imports: [
     BrowserModule,
