@@ -12,7 +12,7 @@
     "prepush": "npm run pretty && npm run lint",
     "postinstall": "ng build --aot -prod",
     "start": "node server.js",
-    "start-ui": "ng serve --open"
+    "start-ui": "ng serve --open --port 3000"
   },
   "private": true,
   "dependencies": {
