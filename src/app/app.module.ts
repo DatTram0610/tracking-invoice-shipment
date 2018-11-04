@@ -16,12 +16,12 @@ import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 import { InvoiceListComponent } from './components/invoice/invoice-list/invoice-list.component';
 import { ClientListComponent } from './components/clients/client-list/client-list.component';
-import { HeaderComponent } from './components/navigation/header/header.component';
 import { SidenavListComponent } from './components/navigation/sidenav-list/sidenav-list.component';
 import { ClientDetailComponent } from './components/clients/client-detail/client-detail.component';
 import { AddEditClientComponent } from './components/clients/add-edit-client/add-edit-client.component';
 import { ContainerComponent } from './components/container/container.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 // Services
 import { InvoiceService } from './services/invoice.service';
@@ -44,7 +44,8 @@ import { Debounce } from './helpers/debounce.helper';
     ClientDetailComponent,
     AddEditClientComponent,
     ContainerComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
