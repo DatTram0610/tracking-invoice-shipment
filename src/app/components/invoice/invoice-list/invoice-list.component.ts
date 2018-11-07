@@ -39,7 +39,5 @@ export class InvoiceListComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.invoiceService.getInvoiceList());
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-
-    console.log(InvoiceStatus);
   }
 }
