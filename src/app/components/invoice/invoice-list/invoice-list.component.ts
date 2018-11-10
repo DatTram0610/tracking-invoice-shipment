@@ -1,13 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
+import { Router } from '@angular/router';
 
 // Services
 import { InvoiceService } from '../../../services/invoice.service';
 
 // Models
 import { Invoice } from '../../../models/invoice';
-import { InvoiceStatus } from 'src/app/models/enum-status';
-import { InvoiceFormComponent } from '../invoice-form/invoice-form.component';
 
 @Component({
   selector: 'app-invoice-list',
@@ -16,7 +15,7 @@ import { InvoiceFormComponent } from '../invoice-form/invoice-form.component';
 })
 export class InvoiceListComponent implements OnInit {
   invoices: Invoice[];
-  displayedColumns: string[] = ['id', 'date', 'name', 'status', 'actions'];
+  displayedColumns: string[] = ['id', 'date', 'name', 'status'];
   invoiceStatus: any;
 
   // Table
@@ -26,7 +25,7 @@ export class InvoiceListComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
 
-  constructor(private invoiceService: InvoiceService) {}
+  constructor(private invoiceService: InvoiceService, private router: Router) {}
 
   ngOnInit() {
     this.invoices = this.invoiceService.getInvoiceList();
@@ -39,5 +38,9 @@ export class InvoiceListComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.invoiceService.getInvoiceList());
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+  }
+
+  selectInvoice(row: Invoice): void {
+    this.router.navigate(['invoices/', row.invoiceId]);
   }
 }

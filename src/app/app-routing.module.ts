@@ -10,12 +10,14 @@ import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 import { ClientDetailComponent } from './components/clients/client-detail/client-detail.component';
 import { InvoiceFormComponent } from './components/invoice/invoice-form/invoice-form.component';
+import { InvoiceDetailComponent } from './components/invoice/invoice-detail/invoice-detail.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'invoices', component: InvoiceListComponent },
+  { path: 'invoices/:id', component: InvoiceDetailComponent},
   { path: 'add-edit-invoice', component: InvoiceFormComponent },
   { path: 'clients', component: ClientListComponent },
   { path: 'clients/:clientId', component: ClientDetailComponent },
