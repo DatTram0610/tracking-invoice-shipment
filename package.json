@@ -11,7 +11,7 @@
     "pretty": "prettier --write \"./src/**/*.ts\"",
     "prepush": "npm run pretty && npm run lint",
     "start": "node server.js",
-    "start-ui": "ng serve --open --port 3000",
+    "start-ui": "ng serve --open --port 3001",
     "postinstall": "ngcc"
   },
   "private": true,
@@ -46,6 +46,7 @@
     "@types/jasmine": "^3.5.10",
     "@types/jasminewd2": "^2.0.5",
     "@types/node": "^13.11.0",
+    "codelyzer": "^5.2.2",
     "husky": "^0.14.3",
     "jasmine-core": "^3.5.0",
     "jasmine-spec-reporter": "^5.0.1",

@@ -3,6 +3,26 @@
     <form #clientForm="ngForm" (ngSubmit)="submitClient()">
       <h2 class="section-header">Contact Information</h2>
       <div class="row">
+        <div class="row-item col-sm-5">
+          <mat-form-field appearance="outline">
+            <mat-label>Start Date</mat-label>
+            <input matInput type="date" [(ngModel)]="client.startDate" name="startDate">
+          </mat-form-field>
+        </div>
+        <div class="row-item col-sm-7">
+          <mat-form-field appearance="outline">
+            <mat-label>Business Type</mat-label>
+            <input matInput placeholder="Importer/Forwarder" type="text" [(ngModel)]="client.businessType" name="businessType">
+          </mat-form-field>
+        </div>
+        <!-- <div class="row-item col-sm-5">
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last Name" type="text" [(ngModel)]="client.lastName" name="last">
+          </mat-form-field>
+        </div> -->
+      </div>
+      <div class="row">
         <div class="row-item col-sm-10">
           <mat-form-field appearance="outline">
             <mat-label>Company Name</mat-label>
