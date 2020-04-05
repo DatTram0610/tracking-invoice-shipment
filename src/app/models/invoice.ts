@@ -1,22 +1,38 @@
 // Models
 import { Client } from './client';
 import { Container } from './container';
-import { InvoiceStatus } from './enum-status';
+import { InvoiceStatus, InvoiceMode, DevanningEnum } from './enum';
 
 // Others
 import { v4 as uuid } from 'uuid';
+import { runInThisContext } from 'vm';
 
 export class Invoice {
-  invoiceId: string;
-  status: InvoiceStatus;
-  client: Client;
+  carrier: string;
+  clientName: string;
   container: Container[];
-  createdDate: Date;
+  devanning?: DevanningEnum;
+  entryDate: Date;
+  estimatedLFD?: Date;
+  eta: Date;
+  fileNumber: string;
+  invoiceId: string;
+  houseBL?: string;
+  masterBL: string;
+  mode: InvoiceMode;
+  status: InvoiceStatus;
+  terminal: string;
   constructor() {
+    this.carrier = '';
+    this.entryDate = new Date();
+    this.eta = new Date();
+    this.fileNumber = '';
     this.invoiceId = uuid();
-    this.client = new Client();
+    this.masterBL = '';
+    this.mode = InvoiceMode.FCL;
+    this.clientName = '';
     this.container = [];
     this.status = InvoiceStatus.InProgress;
-    this.createdDate = new Date();
+    this.terminal = '';
   }
 }
