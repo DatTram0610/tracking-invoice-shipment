@@ -11,7 +11,7 @@
     "pretty": "prettier --write \"./src/**/*.ts\"",
     "prepush": "npm run pretty && npm run lint",
     "start": "node server.js",
-    "start-ui": "ng serve --open --port 3000",
+    "start-ui": "ng serve --open --port 3001",
     "postinstall": "ngcc"
   },
   "private": true,
