@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 // Models
 import { Invoice } from '../models/invoice';
 import { Container } from '../models/container';
-import { InvoiceStatus } from '../models/enum-status';
+import { InvoiceStatus, InvoiceMode } from '../models/enum';
 
 @Injectable({
   providedIn: 'root'
@@ -12,35 +12,8 @@ export class InvoiceService {
   currentInvoice: Invoice;
   invoices: Invoice[] = [
     {
-      invoiceId: 'SD12sDFSDFfd343',
-      status: InvoiceStatus.Archived,
-      createdDate: new Date(),
-      client: {
-        id: '1',
-        displayName: 'Bau',
-        firstName: 'Daniel',
-        lastName: 'Frank',
-        email: 'danielf@gmail.com',
-        phone: '3109721234',
-        nameOnCheck: 'Company A',
-        billingAddress: {
-          address1: '123 Main St',
-          address2: 'Suite #135',
-          city: 'Carson',
-          state: 'CA',
-          zipCode: '92345',
-          country: 'US'
-        },
-        shippingAddress: {
-          address1: '9802 Western St',
-          city: 'Hawthorne',
-          state: 'CA',
-          zipCode: '90001'
-        },
-        createdDate: new Date('2015-04-25'),
-        updatedDate: new Date('2015-03-25'),
-        term: 1
-      },
+      carrier: 'USPS',
+      clientName: 'Daniel',
       container: [
         {
           amount: 1,
@@ -50,7 +23,15 @@ export class InvoiceService {
           quantity: 1,
           rate: 1
         }
-      ]
+      ],
+      entryDate: new Date(),
+      eta: new Date(),
+      fileNumber: '123abc',
+      invoiceId: 'SD12sDFSDFfd343',
+      status: InvoiceStatus.Archived,
+      invoiceId: 'lak8f8d',
+      masterBL: 'MasterBL',
+      mode: InvoiceMode.FCL
     },
     {
       invoiceId: 'FKGDFG3124D!DD',

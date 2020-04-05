@@ -8,7 +8,7 @@ import { InvoiceService } from '../../../services/invoice.service';
 
 // Models
 import { Invoice } from '../../../models/invoice';
-import { InvoiceStatus } from 'src/app/models/enum-status';
+import { InvoiceStatus } from 'src/app/models/enum';
 import { InvoiceFormComponent } from '../invoice-form/invoice-form.component';
 
 @Component({

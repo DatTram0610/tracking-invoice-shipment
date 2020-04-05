@@ -24,14 +24,14 @@ export class Invoice {
   terminal: string;
   constructor() {
     this.carrier = '';
+    this.clientName = '';
+    this.container = [];
     this.entryDate = new Date();
     this.eta = new Date();
     this.fileNumber = '';
     this.invoiceId = uuid();
     this.masterBL = '';
     this.mode = InvoiceMode.FCL;
-    this.clientName = '';
-    this.container = [];
     this.status = InvoiceStatus.InProgress;
     this.terminal = '';
   }
