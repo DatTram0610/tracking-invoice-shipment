@@ -4,11 +4,17 @@ export enum InvoiceStatus {
   Completed
 }
 
-// TODO: Get real values
+export enum ShipmentStatus {
+  Standard,
+  Hot
+}
 export enum InvoiceMode {
   FCL,
   LCL
 }
 
-// TODO: Get real values
-export enum DevanningEnum {}
+export enum DevanningEnum {
+  No,
+  Full,
+  Partial
+}

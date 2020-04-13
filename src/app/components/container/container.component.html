@@ -52,40 +52,91 @@
   </div>
 </div>
 <div class="add-edit-container">
-  <h5>Add Container</h5>
+  <h5>New Container Info</h5>
   <form #clientForm="ngForm" (ngSubmit)="addContainer()">
     <div class="row">
-      <div class="col-md-3">
-        <mat-form-field appearance="standard">
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
           <mat-label>Product/Service</mat-label>
           <input matInput type="text" name="product" [(ngModel)]="currentContainer.product">
         </mat-form-field>
       </div>
-      <div class="col-md-5">
-        <mat-form-field appearance="standard">
+      <div class="col-md-8">
+        <mat-form-field appearance="outline">
           <mat-label>Description</mat-label>
           <input matInput type="text" name="description" [(ngModel)]="currentContainer.description">
         </mat-form-field>
       </div>
-      <div class="col-md-1">
-        <mat-form-field appearance="standard">
-          <mat-label>Qty</mat-label>
-          <input matInput type="number" name="quantity" [(ngModel)]="currentContainer.quantity">
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Size</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let size of containerSizes" [value]="size">
+              {{size}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
-      <div class="col-md-1">
-        <mat-form-field appearance="standard">
-          <mat-label>Rate</mat-label>
-          <input matInput type="number" name="rate" [(ngModel)]="currentContainer.rate">
-        </mat-form-field>
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md-7">
+            <mat-form-field appearance="outline">
+              <mat-label>Weight</mat-label>
+              <input matInput type="text" name="weight">
+            </mat-form-field>
+          </div>
+          <div class="col-md-5">
+            <mat-form-field appearance="outline">
+              <mat-select placeholder="Units">
+                <mat-option *ngFor="let unit of weightUnits" [value]="unit">
+                  {{unit}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
       </div>
-      <div class="col-md-2">
-        <mat-form-field appearance="standard">
-          <mat-label>Amount</mat-label>
-          <input matInput type="number" name="amount" [(ngModel)]="currentContainer.amount">
-        </mat-form-field>
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md-7">
+            <mat-form-field appearance="outline">
+              <mat-label>Quantity</mat-label>
+              <input matInput type="text" name="quantity">
+            </mat-form-field>
+          </div>
+          <div class="col-md-5">
+            <mat-form-field appearance="outline">
+              <mat-select placeholder="Units">
+                <mat-option *ngFor="let unit of quantityUnits" [value]="unit">
+                  {{unit}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md-7">
+            <mat-form-field appearance="outline">
+              <mat-label>Dimension</mat-label>
+              <input matInput type="text" name="dimension">
+            </mat-form-field>
+          </div>
+          <div class="col-md-5">
+            <mat-form-field appearance="outline">
+              <mat-select placeholder="Units">
+                <mat-option *ngFor="let unit of dimensionUnits" [value]="unit">
+                  {{unit}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-default">Add</button>
+    <button type="submit" class="btn btn-secondary">Add Container</button>
   </form>
 </div>

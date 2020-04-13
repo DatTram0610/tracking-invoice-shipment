@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Client } from '../../../models/client';
 import { Container } from '../../../models/container';
 import { Invoice } from '../../../models/invoice';
+import { InvoiceMode, ShipmentStatus, DevanningEnum } from '../../../models/enum';
 
 // Services
 import { ClientService } from '../../../services/client.service';
@@ -36,6 +37,37 @@ export class InvoiceFormComponent implements OnInit {
   submitButtonText: string;
 
   term: number[];
+  modes: { value: string; viewValue: string }[] = [
+    {
+      value: InvoiceMode[0],
+      viewValue: InvoiceMode[0]
+    },
+    {
+      value: InvoiceMode[1],
+      viewValue: InvoiceMode[1]
+    }
+  ];
+  shipmentStatus: { value: string; viewValue: string }[] = [
+    {
+      value: ShipmentStatus[0],
+      viewValue: ShipmentStatus[0]
+    },
+    {
+      value: ShipmentStatus[1],
+      viewValue: ShipmentStatus[1]
+    }
+  ];
+
+  devanningOptions: { value: string; viewValue: string }[] = [
+    {
+      value: DevanningEnum[0],
+      viewValue: DevanningEnum[0]
+    },
+    {
+      value: DevanningEnum[1],
+      viewValue: DevanningEnum[1]
+    }
+  ];
 
   searchClient = this.debounce.debounce(
     (clientName: string) => {

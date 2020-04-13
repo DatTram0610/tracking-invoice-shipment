@@ -18,9 +18,13 @@ export class ContainerComponent implements OnInit {
   currentContainer: Container;
   containerList: Container[];
   containerId: number;
+  containerSizes: string[] = ['20', '40', '60', 'LCL'];
   dataSource: MatTableDataSource<Container>;
+  dimensionUnits: string[] = ['CBM'];
   displayedColumns: string[] = ['product/service', 'description', 'quantity', 'rate', 'amount', 'actions'];
   edittingPosition: number;
+  quantityUnits: string[] = ['PCS', 'PAL', 'BOX'];
+  weightUnits: string[] = ['KG', 'LBS'];
 
   @ViewChild(MatSort)
   sort: MatSort;

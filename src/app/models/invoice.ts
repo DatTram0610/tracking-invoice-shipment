@@ -5,16 +5,17 @@ import { InvoiceStatus, InvoiceMode, DevanningEnum } from './enum';
 
 // Others
 import { v4 as uuid } from 'uuid';
-import { runInThisContext } from 'vm';
 
 export class Invoice {
   carrier: string;
+  client: Client;
   clientName: string;
   container: Container[];
   devanning?: DevanningEnum;
   entryDate: Date;
   estimatedLFD?: Date;
   eta: Date;
+  // TODO:
   fileNumber: string;
   invoiceId: string;
   houseBL?: string;
@@ -24,6 +25,7 @@ export class Invoice {
   terminal: string;
   constructor() {
     this.carrier = '';
+    this.client = new Client();
     this.clientName = '';
     this.container = [];
     this.entryDate = new Date();
