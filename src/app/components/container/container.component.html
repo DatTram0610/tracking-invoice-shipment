@@ -52,8 +52,9 @@
   </div>
 </div>
 <div class="add-edit-container">
-  <h5>New Container Info</h5>
   <form #clientForm="ngForm" (ngSubmit)="addContainer()">
+    <!-- Begin Container Info -->
+    <h5>New Container Info</h5>
     <div class="row">
       <div class="col-md-4">
         <mat-form-field appearance="outline">
@@ -137,6 +138,102 @@
         </div>
       </div>
     </div>
+    <!-- End Container Info -->
+
+    <!-- Begin Container Delivery -->
+    <h5>Container Delivery</h5>
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>ETA</mat-label>
+          <input matInput placeholder="mm/dd/yyyy" type="text" name="eta">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Discharge</mat-label>
+          <input matInput placeholder="mm/dd/yyyy" type="text" name="discharge">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>LFD</mat-label>
+          <input matInput placeholder="mm/dd/yyyy" type="text" name="lfd">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>P?U Date</mat-label>
+          <input matInput placeholder="mm/dd/yyyy" type="text" name="p/u-date">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>P/U Time</mat-label>
+          <input matInput placeholder="hh:mm" type="text" name="p/u-time">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Demurrage</mat-label>
+          <input matInput placeholder="number of day" type="text" name="lfd">
+        </mat-form-field>
+      </div>
+    </div>
+    <!-- End Container Delivery -->
+
+    <!-- Begin Container Fee -->
+    <h5>Container Fee</h5>
+    <div class="row">
+      <div class="col-md-3">
+        <mat-form-field appearance="outline">
+          <mat-label>TMF</mat-label>
+          <input matInput placeholder="$" type="text" name="tmf">
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Yard Storage</mat-label>
+          <input matInput placeholder="number of day" type="text" name="yard-storage">
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <mat-checkbox class="example-margin">Night Gate</mat-checkbox>
+      </div>
+      <div class="col-md-3">
+        <mat-checkbox class="example-margin">Pre-pull</mat-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Exam Fee</mat-label>
+          <input matInput placeholder="$" type="text" name="exam-fee">
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Demurrage</mat-label>
+          <input matInput placeholder="$" type="text" name="demurrage">
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Per Diem</mat-label>
+          <input matInput placeholder="$" type="text" name="per-diem">
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Docs Fee</mat-label>
+          <input matInput placeholder="$" type="text" name="docs-fee">
+        </mat-form-field>
+      </div>
+    </div>
+    <!-- End Container Fee -->
+
     <button type="submit" class="btn btn-secondary">Add Container</button>
   </form>
 </div>
