@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 // Models
 import { Invoice } from '../models/invoice';
-import { Container } from '../models/container';
+import { Container } from '../models/container/container';
 import { InvoiceStatus, InvoiceMode } from '../models/enum';
 
 @Injectable({

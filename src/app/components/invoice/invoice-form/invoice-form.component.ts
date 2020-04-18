@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 // Models
 import { Client } from '../../../models/client';
-import { Container } from '../../../models/container';
+import { Container } from '../../../models/container/container';
 import { Invoice } from '../../../models/invoice';
 import { InvoiceMode, ShipmentStatus, DevanningEnum } from '../../../models/enum';
 

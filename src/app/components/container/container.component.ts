@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 
 // Models
-import { Container } from '../../models/container';
+import { Container } from '../../models/container/container';
 
 // Services
 import { InvoiceService } from '../../services/invoice.service';
@@ -25,6 +25,8 @@ export class ContainerComponent implements OnInit {
   edittingPosition: number;
   quantityUnits: string[] = ['PCS', 'PAL', 'BOX'];
   weightUnits: string[] = ['KG', 'LBS'];
+  freightStatuses: string[] = ['HOLD', 'RELEASE'];
+  customStatuses: string[] = ['HOLD', 'RELEASE'];
 
   @ViewChild(MatSort)
   sort: MatSort;

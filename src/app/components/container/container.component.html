@@ -234,6 +234,82 @@
     </div>
     <!-- End Container Fee -->
 
+    <!-- Begin Container Releasement -->
+    <h5>Container Releasement</h5>
+    <div class="row">
+      <div class="col-md-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Freight</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let status of freightStatuses" [value]="status">
+              {{status}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Customs</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let status of customStatuses" [value]="status">
+              {{status}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Remark</mat-label>
+          <input matInput type="text" name="remark">
+        </mat-form-field>
+      </div>
+    </div>
+    <!-- End Container Releasement -->
+
+    <!-- Begin Transporting Process -->
+    <h5>Transporting Process</h5>
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Chasis Number</mat-label>
+          <input matInput type="text" name="chasis-number">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Per Diem</mat-label>
+          <input matInput type="text" placeholder="mm/dd/yyyy" name="per-diem">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Chasis Return</mat-label>
+          <input matInput type="text" placeholder="mm/dd/yyyy" name="chasis-return">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>New Chasis Number</mat-label>
+          <input matInput type="text" name="new-chasis-number">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Empty Return</mat-label>
+          <input matInput type="text" placeholder="mm/dd/yyyy" name="empty-return">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Detention</mat-label>
+          <input matInput type="text" placeholder="Number of day" name="detention">
+        </mat-form-field>
+      </div>
+    </div>
+    <!-- End Transporting Process -->
+
     <button type="submit" class="btn btn-secondary">Add Container</button>
   </form>
 </div>

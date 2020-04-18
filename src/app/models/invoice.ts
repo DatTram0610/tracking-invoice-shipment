@@ -1,6 +1,6 @@
 // Models
 import { Client } from './client';
-import { Container } from './container';
+import { Container } from './container/container';
 import { InvoiceStatus, InvoiceMode, DevanningEnum } from './enum';
 
 // Others
