@@ -82,10 +82,11 @@ export class ContainerComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
 
-  constructor(private invoiceService: InvoiceService) {}
+  constructor(private invoiceService: InvoiceService) { }
 
   ngOnInit(): void {
     this.currentContainer = new Container();
+    console.log(this.currentContainer);
     this.containerList = this.invoiceService.getContainerList();
     this.containerId = 1;
   }
