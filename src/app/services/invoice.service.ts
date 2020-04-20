@@ -157,12 +157,12 @@ export class InvoiceService {
   }
 
   addContainer(container: Container): void {
-    this.currentInvoice.container.push(container);
-    console.log(this.currentInvoice.container);
+    this.currentInvoice.containers.push(container);
+    console.log('Current invoice:', this.currentInvoice.containers);
   }
 
   getContainerList(): Container[] {
-    return this.currentInvoice.container;
+    return this.currentInvoice.containers;
   }
 
   getInvoiceList(): Invoice[] {

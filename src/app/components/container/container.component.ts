@@ -23,9 +23,8 @@ export class ContainerComponent implements OnInit {
   containerId: number;
   containerSizes: string[] = ['20', '40', '60', 'LCL'];
   dataSource: MatTableDataSource<Container>;
-  displayedColumns: string[] = ['product/service', 'description', 'quantity', 'rate', 'amount', 'actions'];
+  displayedColumns: string[] = ['product/service', 'description', 'actions'];
   edittingPosition: number;
-  // Enum
   dimensionUnits: { value: string; viewValue: string }[] = [
     {
       value: DimensionUnits[0],
@@ -86,12 +85,12 @@ export class ContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentContainer = new Container();
-    console.log(this.currentContainer);
     this.containerList = this.invoiceService.getContainerList();
     this.containerId = 1;
   }
 
   addContainer(): void {
+    console.log('Current container:', this.currentContainer);
     if (this.edittingPosition >= 0) {
       this.containerList[this.edittingPosition] = this.currentContainer;
       this.edittingPosition = -1;

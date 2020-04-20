@@ -10,12 +10,11 @@ export class Invoice {
   carrier: string;
   client: Client;
   clientName: string;
-  container: Container[];
+  containers: Container[];
   devanning?: DevanningEnum;
   entryDate: Date;
   estimatedLFD?: Date;
   eta: Date;
-  // TODO:
   fileNumber: string;
   invoiceId: string;
   houseBL?: string;
@@ -27,7 +26,7 @@ export class Invoice {
     this.carrier = '';
     this.client = new Client();
     this.clientName = '';
-    this.container = [];
+    this.containers = [];
     this.entryDate = new Date();
     this.eta = new Date();
     this.fileNumber = '';
