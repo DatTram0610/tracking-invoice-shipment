@@ -1,7 +1,12 @@
 import { Address } from './address';
 
+// Others
+import { v4 as uuid } from 'uuid';
+
 export class Client {
-  id?: string;
+  id: string;
+  startDate: Date;
+  businessType: string;
   title?: string;
   companyName?: string;
   displayName: string;
@@ -12,6 +17,7 @@ export class Client {
   email: string;
   phone: string;
   mobilePhone?: string;
+  remark?: string;
   fax?: string;
   otherContactInfo?: string;
   website?: string;
@@ -25,8 +31,17 @@ export class Client {
   updatedDate?: Date;
   containers?: string[];
   term: number;
+  taxIDType: string;
+  taxIDNumber: string;
+  accountNumber: string;
+  creditType: string;
+  creditLimit: number;
+  paymentTerm: string;
+  creditHold: string;
+  notes: string;
 
   constructor() {
+    this.id = uuid();
     this.displayName = '';
     this.firstName = '';
     this.lastName = '';
@@ -36,5 +51,9 @@ export class Client {
     this.term = null;
     this.billingAddress = new Address();
     this.shippingAddress = new Address();
+    this.taxIDType = null;
+    this.creditType = null;
+    this.startDate = new Date();
+    this.creditHold = null;
   }
 }

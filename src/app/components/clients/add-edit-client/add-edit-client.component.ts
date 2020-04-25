@@ -13,13 +13,19 @@ import { Client } from '../../../models/client';
 })
 export class AddEditClientComponent implements OnInit {
   client: Client;
+
   sameAsBilling: Boolean = false;
   addClientError: Boolean = false;
   isAddingClient: boolean;
   submitButtonText: string;
 
-  constructor(private clientService: ClientService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private clientService: ClientService, private router: Router, private route: ActivatedRoute) { }
+  businessType: string[];
   term: number[];
+  taxIDType: string[];
+  creditType: string[];
+  paymentTerm: string[];
+  creditHold: string[];
 
   ngOnInit() {
     if (this.route.snapshot.params['id']) {
@@ -31,7 +37,12 @@ export class AddEditClientComponent implements OnInit {
       this.isAddingClient = true;
       this.submitButtonText = 'Add Client';
     }
+    this.businessType = ['Importer', 'Forwarder'];
     this.term = [1, 3, 7, 10, 15];
+    this.taxIDType = ['EIN#', 'SSN#', 'ITIN#'];
+    this.creditType = ['Excellent', 'Good', 'Fair', 'Bad', 'Risky'];
+    this.paymentTerm = ['COD', '30 Day', '60 Day'];
+    this.creditHold = ['No Holds', 'Yes/ Explain Below'];
   }
 
   submitClient(): void {
@@ -53,40 +64,6 @@ export class AddEditClientComponent implements OnInit {
       this.client.shippingAddress.city = '';
       this.client.shippingAddress.state = '';
       this.client.shippingAddress.zipCode = '';
-    }
-  }
-
-  phoneChange(): void {
-    // ToDo: format phone
-  }
-
-  billingAddress1Change(event): void {
-    if (this.sameAsBilling) {
-      this.client.shippingAddress.address1 = event.target.value;
-    }
-  }
-
-  billingAddress2Change(event): void {
-    if (this.sameAsBilling) {
-      this.client.shippingAddress.address2 = event.target.value;
-    }
-  }
-
-  billingCityChange(event): void {
-    if (this.sameAsBilling) {
-      this.client.shippingAddress.city = event.target.value;
-    }
-  }
-
-  billingStateChange(event): void {
-    if (this.sameAsBilling) {
-      this.client.shippingAddress.state = event.target.value;
-    }
-  }
-
-  billingZipCodeChange(event): void {
-    if (this.sameAsBilling) {
-      this.client.shippingAddress.zipCode = event.target.value;
     }
   }
 }
