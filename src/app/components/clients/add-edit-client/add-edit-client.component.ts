@@ -19,13 +19,13 @@ export class AddEditClientComponent implements OnInit {
   isAddingClient: boolean;
   submitButtonText: string;
 
-  constructor(private clientService: ClientService, private router: Router, private route: ActivatedRoute) {}
-  businessType: any[];
+  constructor(private clientService: ClientService, private router: Router, private route: ActivatedRoute) { }
+  businessType: string[];
   term: number[];
-  taxIDType: any[];
-  creditType: any[];
-  paymentTerm: any[];
-  creditHold: any[];
+  taxIDType: string[];
+  creditType: string[];
+  paymentTerm: string[];
+  creditHold: string[];
 
   ngOnInit() {
     if (this.route.snapshot.params['id']) {
