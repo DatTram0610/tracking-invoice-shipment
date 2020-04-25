@@ -29,7 +29,7 @@ export class InvoiceFormComponent implements OnInit {
   clientList: Client[];
   searchedClients: Client[];
   isSearchingClient: boolean;
-  testText: string;
+  displayName: string;
 
   sameAsBilling: Boolean = false;
   addClientError: Boolean = false;
@@ -93,7 +93,7 @@ export class InvoiceFormComponent implements OnInit {
     private clientService: ClientService,
     private invoiceService: InvoiceService,
     private debounce: Debounce
-  ) {}
+  ) { }
 
   ngOnInit() {
     // this.invoice = this.invoiceService.currentInvoice;
@@ -161,7 +161,7 @@ export class InvoiceFormComponent implements OnInit {
 
   selectClient(client: Client): void {
     this.isSearchingClient = false;
-    this.testText = client.displayName;
+    this.displayName = client.displayName;
     this.invoice.client = client;
   }
 

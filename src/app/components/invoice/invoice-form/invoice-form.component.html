@@ -8,8 +8,48 @@
         <div class="form">
           <form #clientForm="ngForm" (ngSubmit)="submitClient()">
 
+            <!-- Begin Client Info-->
+            <h5>Client Information</h5>
+            <div class="row">
+              <div class="row-item col-sm-10">
+                <div class="client-name">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Company Name</mat-label>
+                    <input matInput placeholder="Company Name" [(ngModel)]="displayName" type="text" name="company"
+                      (keyup)="searchClient(displayName)">
+                  </mat-form-field>
+                  <div class="client-list" *ngIf="(searchedClients.length > 0) && isSearchingClient">
+                    <ul>
+                      <li *ngFor="let client of searchedClients" (click)="selectClient(client)">{{client.displayName}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <mat-form-field appearance="outline">
+                  <mat-label>Term</mat-label>
+                  <mat-select [(ngModel)]="invoice.client.term" name="term">
+                    <mat-option *ngFor="let t of term" [value]="t">
+                      {{t}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12 row-item">
+                <mat-form-field appearance="outline">
+                  <mat-label>File Number</mat-label>
+                  <input matInput placeholder="File number. Ex: 12FSD323...">
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- End Client Info-->
+
             <!-- Begin Contact Information -->
-            <h5>Contact Information</h5>
+            <!-- <h5>Contact Information</h5>
             <div class="row">
               <div class="row-item col-sm-10">
                 <div class="client-name">
@@ -72,11 +112,11 @@
                   <input matInput placeholder="Email" [(ngModel)]="invoice.client.email" type="email" name="email">
                 </mat-form-field>
               </div>
-            </div>
+            </div> -->
             <!-- End Contact Information -->
 
             <!-- Begin Billing Address -->
-            <h5>Billing Address</h5>
+            <!-- <h5>Billing Address</h5>
             <div class="row">
               <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">
@@ -94,7 +134,6 @@
                 </mat-form-field>
               </div>
             </div>
-
             <div class="row">
               <div class="col-sm-4 row-item">
                 <mat-form-field appearance="outline">
@@ -117,11 +156,11 @@
                     name="billingZipCode" (input)="billingZipCodeChange($event)">
                 </mat-form-field>
               </div>
-            </div>
+            </div> -->
             <!-- End Billing Address -->
 
             <!-- Begin Shipping Address -->
-            <div class="row shipping-address-label">
+            <!-- <div class="row shipping-address-label">
               <div class="col-sm-6">
                 <h5>Shipping Address</h5>
               </div>
@@ -129,7 +168,6 @@
                 <mat-checkbox (click)="copyBilling()" name="sameAsBilling">Same as Billing Address</mat-checkbox>
               </div>
             </div>
-
             <div class="row">
               <div class="row-item col-sm-6">
                 <mat-form-field appearance="outline">
@@ -147,7 +185,6 @@
                 </mat-form-field>
               </div>
             </div>
-
             <div class="row">
               <div class="col-sm-4 row-item">
                 <mat-form-field appearance="outline">
@@ -170,20 +207,20 @@
                     type="text" name="shippingZipCode" [disabled]="sameAsBilling">
                 </mat-form-field>
               </div>
-            </div>
+            </div> -->
             <!-- End Shipping Address -->
 
             <!-- Begin Shipment Info-->
             <h5>Shipment Info</h5>
 
-            <div class="row">
-              <div class="col-sm-6 row-item">
+            <!-- <div class="row">
+              <div class="col-sm-12 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>File Number</mat-label>
                   <input matInput placeholder="File number. Ex: 12FSD323...">
                 </mat-form-field>
               </div>
-            </div>
+            </div> -->
 
             <div class="row">
               <div class="col-sm-6 row-item">
@@ -226,7 +263,7 @@
             <div class="row">
               <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">
-                  <mat-label>House</mat-label>
+                  <mat-label>House BL</mat-label>
                   <input matInput placeholder="House">
                 </mat-form-field>
               </div>
@@ -278,11 +315,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="col-md-4">
-      <div class="contrast-container">
-        <p>This area will be determined later</p>
-      </div>
-    </div> -->
   </div>
   <div class="row">
     <div class="col-md-12">
