@@ -41,16 +41,15 @@ export class InvoiceService {
         },
         createdDate: new Date('2015-04-25'),
         updatedDate: new Date('2015-03-25'),
-        term: 1
-        ,
-      taxIDType: 'A test',
-      taxIDNumber: 'A test',
-      accountNumber: 'A test',
-      creditType: 'A test',
-      creditLimit: 5651,
-      paymentTerm: 'A test',
-      creditHold: 'A test',
-      notes: 'A test'
+        term: 1,
+        taxIDType: 'A test',
+        taxIDNumber: 'A test',
+        accountNumber: 'A test',
+        creditType: 'A test',
+        creditLimit: 5651,
+        paymentTerm: 'A test',
+        creditHold: 'A test',
+        notes: 'A test'
       },
       container: [
         {
