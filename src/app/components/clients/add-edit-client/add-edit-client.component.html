@@ -12,15 +12,14 @@
         <div class="row-item col-sm-7">
           <mat-form-field appearance="outline">
             <mat-label>Business Type</mat-label>
-            <input matInput placeholder="Importer/Forwarder" type="text" [(ngModel)]="client.businessType" name="businessType">
+            <mat-select [(ngModel)]="client.businessType" name="businessType">
+              <mat-option *ngFor="let t of businessType" [value]="t">
+                {{t}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
-        <!-- <div class="row-item col-sm-5">
-          <mat-form-field appearance="outline">
-            <mat-label>Last Name</mat-label>
-            <input matInput placeholder="Last Name" type="text" [(ngModel)]="client.lastName" name="last">
-          </mat-form-field>
-        </div> -->
+       
       </div>
       <div class="row">
         <div class="row-item col-sm-10">
@@ -64,31 +63,46 @@
         <div class="row-item col-sm-6">
           <mat-form-field appearance="outline">
             <mat-label>Phone</mat-label>
-            <input matInput placeholder="Phone number" type="tel" [(ngModel)]="client.phone" name="phone" (input)="phoneChange()">
+            <input matInput placeholder="Phone number" type="tel" [(ngModel)]="client.phone" name="phone">
           </mat-form-field>
         </div>
         <div class="row-item col-sm-6">
           <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
-            <input matInput placeholder="Email" type="email" [(ngModel)]="client.email" name="email">
+            <input matInput placeholder="Email"  type="email" [(ngModel)]="client.email" name="email">
+            <!-- <input matInput placeholder="Email" [formControl]="emailFormControl" [(ngModel)]="client.email" name="email"> -->
+            <!-- <mat-hint>Errors appear instantly!</mat-hint>
+    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error> -->
           </mat-form-field>
         </div>
       </div>
-
+      <div class="row">
+        <div class="row-item col-sm-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Remark</mat-label>
+            <textarea matInput placeholder="Any special requests" rows="5" [(ngModel)]="client.remark" name="remark"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
       <h2 class="section-header">Billing Address</h2>
       <div class="row">
         <div class="col-sm-6 row-item">
           <mat-form-field appearance="outline">
             <mat-label>Address 1</mat-label>
             <input matInput placeholder="Street and number" type="text" [(ngModel)]="client.billingAddress.address1"
-              name="billingAddress1" (input)="billingAddress1Change($event)">
+              name="billingAddress1" >
           </mat-form-field>
         </div>
         <div class="col-sm-6 row-item">
           <mat-form-field appearance="outline">
             <mat-label>Address 2</mat-label>
             <input matInput placeholder="Suite, unit, building, floor, etc." type="text" [(ngModel)]="client.billingAddress.address2"
-              name="billingAddress2" (input)="billingAddress2Change($event)">
+              name="billingAddress2" >
           </mat-form-field>
         </div>
       </div>
@@ -98,21 +112,20 @@
           <mat-form-field appearance="outline">
             <mat-label>City</mat-label>
             <input matInput placeholder="City" type="text" [(ngModel)]="client.billingAddress.city" name="billingCity"
-              (input)="billingCityChange($event)">
+         >
           </mat-form-field>
         </div>
         <div class="col-sm-4 row-item">
           <mat-form-field appearance="outline">
             <mat-label>State / Province</mat-label>
             <input matInput placeholder="State / Province" type="text" [(ngModel)]="client.billingAddress.state" name="billingState"
-              (input)="billingStateChange($event)">
+             >
           </mat-form-field>
         </div>
         <div class="col-sm-4 row-item">
           <mat-form-field appearance="outline">
             <mat-label>Zip Code</mat-label>
-            <input matInput placeholder="Zip Code" type="text" [(ngModel)]="client.billingAddress.zipCode" name="billingZipCode"
-              (input)="billingZipCodeChange($event)">
+            <input matInput placeholder="Zip Code" type="text" [(ngModel)]="client.billingAddress.zipCode" name="billingZipCode">
           </mat-form-field>
         </div>
       </div>
@@ -167,6 +180,90 @@
           </mat-form-field>
         </div>
       </div>
+
+      <h2 class="section-header">Payment Information</h2>
+      <div class="row">
+        <div class="col-sm-6 row-item">
+          <mat-form-field appearance="outline">
+            <mat-label>Tax ID Type</mat-label>
+            <mat-select [(ngModel)]="client.taxIDType" name="taxIDType">
+              <mat-option *ngFor="let t of taxIDType" [value]="t">
+                {{t}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6 row-item">
+          <mat-form-field appearance="outline">
+            <mat-label>Tax ID Number</mat-label>
+            <input matInput placeholder="Ex. 90-8888888" type="text" [(ngModel)]="client.taxIDNumber" name="taxIDNumber"
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 row-item">
+          <mat-form-field appearance="outline">
+            <mat-label>Account Number</mat-label>
+            <input matInput placeholder="Bank account number" type="text" [(ngModel)]="client.accoutNumber" name="accoutNumber"
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-sm-12 row-item">
+          <mat-form-field appearance="outline">
+            <mat-label>Credit Type</mat-label>
+            <mat-select [(ngModel)]="client.creditType" name="creditType">
+              <mat-option *ngFor="let t of creditType" [value]="t">
+                {{t}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 row-item">
+          <mat-form-field appearance="outline">
+            <mat-label>Credit Limit</mat-label>
+            <input matInput placeholder="$" type="text" [(ngModel)]="client.creditLimit" name="creditLimit"
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6 row-item">
+          <mat-form-field appearance="outline">
+            <mat-label>Payment Term</mat-label>
+            <mat-select [(ngModel)]="client.paymentTerm" name="paymentTerm">
+              <mat-option *ngFor="let t of paymentTerm" [value]="t">
+                {{t}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+        <div class="row">
+        <div class="col-sm-12 row-item">
+          <mat-form-field appearance="outline">
+            <mat-label>Credit Hold</mat-label>
+            <mat-select [(ngModel)]="client.creditHold" name="creditHold">
+              <mat-option *ngFor="let t of creditHold" [value]="t">
+                {{t}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 row-item">
+          <mat-form-field appearance="outline">
+            <mat-label>Notes</mat-label>
+            <textarea matInput placeholder="Notes on account and payment info" type="text" rows="5" [(ngModel)]="client.notes" name="notes"
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+
+
       <div fxLayout="row" fxLayoutAlign="center" class="submit">
         <button type="submit" mat-raised-button color="primary" [disabled]="clientForm.invalid">{{submitButtonText}}</button>
       </div>
