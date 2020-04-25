@@ -11,7 +11,7 @@
             <!-- Begin Client Info-->
             <h5>Client Information</h5>
             <div class="row">
-              <div class="row-item col-sm-10">
+              <div class="row-item col-sm-12">
                 <div class="client-name">
                   <mat-form-field appearance="outline">
                     <mat-label>Company Name</mat-label>
@@ -25,25 +25,6 @@
                     </ul>
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-2">
-                <mat-form-field appearance="outline">
-                  <mat-label>Term</mat-label>
-                  <mat-select [(ngModel)]="invoice.client.term" name="term">
-                    <mat-option *ngFor="let t of term" [value]="t">
-                      {{t}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-sm-12 row-item">
-                <mat-form-field appearance="outline">
-                  <mat-label>File Number</mat-label>
-                  <input matInput placeholder="File number. Ex: 12FSD323...">
-                </mat-form-field>
               </div>
             </div>
             <!-- End Client Info-->
@@ -212,16 +193,25 @@
 
             <!-- Begin Shipment Info-->
             <h5>Shipment Info</h5>
-
-            <!-- <div class="row">
-              <div class="col-sm-12 row-item">
+            <div class="row">
+              <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>File Number</mat-label>
-                  <input matInput placeholder="File number. Ex: 12FSD323...">
+                  <input matInput placeholder="File number. Ex: 12FSD323..." name="file-number"
+                    [(ngModel)]="invoice.shipment.fileNumber">
                 </mat-form-field>
               </div>
-            </div> -->
-
+              <div class="col-sm-6 row-item">
+                <mat-form-field appearance="outline">
+                  <mat-label>Term</mat-label>
+                  <mat-select [(ngModel)]="invoice.shipment.term" name="term">
+                    <mat-option *ngFor="let t of term" [value]="t">
+                      {{t}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
             <div class="row">
               <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">

@@ -9,13 +9,11 @@ import { Shipment } from './shipment';
 
 export class Invoice {
   client: Client;
-  fileNumber: string;
   shipment: Shipment;
   containers: Container[];
   constructor() {
     this.client = new Client();
     this.containers = [];
-    this.fileNumber = '';
     this.shipment = new Shipment();
   }
 }
