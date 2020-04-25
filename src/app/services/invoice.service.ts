@@ -17,6 +17,8 @@ export class InvoiceService {
       createdDate: new Date(),
       client: {
         id: '1',
+        startDate: new Date('2015-04-25'),
+        businessType: 'B',
         displayName: 'Bau',
         firstName: 'Daniel',
         lastName: 'Frank',
@@ -39,7 +41,15 @@ export class InvoiceService {
         },
         createdDate: new Date('2015-04-25'),
         updatedDate: new Date('2015-03-25'),
-        term: 1
+        term: 1,
+        taxIDType: 'A test',
+        taxIDNumber: 'A test',
+        accountNumber: 'A test',
+        creditType: 'A test',
+        creditLimit: 5651,
+        paymentTerm: 'A test',
+        creditHold: 'A test',
+        notes: 'A test'
       },
       container: [
         {
@@ -58,6 +68,8 @@ export class InvoiceService {
       createdDate: new Date(),
       client: {
         id: '2',
+        startDate: new Date('2015-04-25'),
+        businessType: 'B',
         displayName: 'Hao',
         firstName: 'David',
         lastName: 'Muller',
@@ -82,7 +94,15 @@ export class InvoiceService {
         },
         createdDate: new Date('2015-04-25'),
         updatedDate: new Date('2015-03-25'),
-        term: 1
+        term: 1,
+        taxIDType: 'A test',
+        taxIDNumber: 'A test',
+        accountNumber: 'A test',
+        creditType: 'A test',
+        creditLimit: 5651,
+        paymentTerm: 'A test',
+        creditHold: 'A test',
+        notes: 'A test'
       },
       container: [
         {
@@ -101,6 +121,8 @@ export class InvoiceService {
       createdDate: new Date(),
       client: {
         id: '3',
+        startDate: new Date('2015-04-25'),
+        businessType: 'B',
         displayName: 'Cuong',
         firstName: 'Tin',
         lastName: 'Authur',
@@ -125,7 +147,15 @@ export class InvoiceService {
         },
         createdDate: new Date('2015-05-23'),
         updatedDate: new Date('2015-03-25'),
-        term: 1
+        term: 1,
+        taxIDType: 'A test',
+        taxIDNumber: 'A test',
+        accountNumber: 'A test',
+        creditType: 'A test',
+        creditLimit: 5651,
+        paymentTerm: 'A test',
+        creditHold: 'A test',
+        notes: 'A test'
       },
       container: [
         {
