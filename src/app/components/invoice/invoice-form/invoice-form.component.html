@@ -216,7 +216,7 @@
               <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>Mode</mat-label>
-                  <mat-select>
+                  <mat-select name="mode" [(ngModel)]="invoice.shipment.mode">
                     <mat-option *ngFor="let mode of modes" [value]="mode.value">
                       {{mode.viewValue}}
                     </mat-option>
@@ -226,7 +226,7 @@
               <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>Status</mat-label>
-                  <mat-select>
+                  <mat-select name="status" [(ngModel)]="invoice.shipment.status">
                     <mat-option *ngFor="let status of shipmentStatus" [value]="status.value">
                       {{status.viewValue}}
                     </mat-option>
@@ -239,13 +239,15 @@
               <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>Carrier</mat-label>
-                  <input matInput placeholder="Carrier">
+                  <input matInput type="text" placeholder="Carrier" name="carrier"
+                    [(ngModel)]="invoice.shipment.carrier">
                 </mat-form-field>
               </div>
               <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>Master BL</mat-label>
-                  <input matInput placeholder="Master BL">
+                  <input matInput type="text" placeholder="Master BL" name="master-bl"
+                    [(ngModel)]="invoice.shipment.masterBL">
                 </mat-form-field>
               </div>
             </div>
@@ -254,13 +256,15 @@
               <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>House BL</mat-label>
-                  <input matInput placeholder="House">
+                  <input matInput type="text" placeholder="House" name="house-bl"
+                    [(ngModel)]="invoice.shipment.houseBL">
                 </mat-form-field>
               </div>
               <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>Terminal</mat-label>
-                  <input matInput placeholder="Terminal">
+                  <input matInput type="text" placeholder="Terminal" name="terminal"
+                    [(ngModel)]="invoice.shipment.terminal">
                 </mat-form-field>
               </div>
             </div>
@@ -269,13 +273,15 @@
               <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>ETA</mat-label>
-                  <input matInput placeholder="mm/dd/yyyy">
+                  <input matInput type="date" placeholder="mm/dd/yyyy" name="expect-time-arrival"
+                    [(ngModel)]="invoice.shipment.expectedTimeOfArrival">
                 </mat-form-field>
               </div>
               <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>Est. LFD</mat-label>
-                  <input matInput placeholder="mm/dd/yyyy">
+                  <input matInput type="date" placeholder="mm/dd/yyyy" name="est-last-free-day"
+                    [(ngModel)]="invoice.shipment.estLastFreeDay">
                 </mat-form-field>
               </div>
             </div>
@@ -284,7 +290,8 @@
               <div class="col-sm-6 row-item">
                 <mat-form-field appearance="outline">
                   <mat-label>Entry Date</mat-label>
-                  <input matInput placeholder="mm/dd/yyyy">
+                  <input matInput type="date" placeholder="mm/dd/yyyy" name="entry-date"
+                    [(ngModel)]="invoice.shipment.entryDate">
                 </mat-form-field>
               </div>
               <div class="col-sm-6 row-item">
@@ -309,7 +316,8 @@
   <div class="row">
     <div class="col-md-12">
       <div class="contrast-container">
-        <app-container></app-container>
+        <app-container (onContainerAdded)="addNewContainer($event)" (onContainerEdited)="editContainer($event)">
+        </app-container>
       </div>
     </div>
   </div>

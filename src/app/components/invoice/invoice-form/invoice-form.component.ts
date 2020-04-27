@@ -37,23 +37,23 @@ export class InvoiceFormComponent implements OnInit {
   submitButtonText: string;
 
   term: number[];
-  modes: { value: string; viewValue: string }[] = [
+  modes: { value: number; viewValue: string }[] = [
     {
-      value: InvoiceMode[0],
+      value: InvoiceMode.FCL,
       viewValue: InvoiceMode[0]
     },
     {
-      value: InvoiceMode[1],
+      value: InvoiceMode.LCL,
       viewValue: InvoiceMode[1]
     }
   ];
-  shipmentStatus: { value: string; viewValue: string }[] = [
+  shipmentStatus: { value: number; viewValue: string }[] = [
     {
-      value: ShipmentStatus[0],
+      value: ShipmentStatus.Hot,
       viewValue: ShipmentStatus[0]
     },
     {
-      value: ShipmentStatus[1],
+      value: ShipmentStatus.Standard,
       viewValue: ShipmentStatus[1]
     }
   ];
@@ -103,6 +103,8 @@ export class InvoiceFormComponent implements OnInit {
     this.term = [1, 3, 7, 10, 15];
   }
 
+
+  // TODO: Change this.invoiceService.addInvoice to submitInvoice and navigate to home page. After this, create tabs for list of containers and invoices
   submitInvoice() {
     // let invoiceNumber = 0;
     // console.log(this.invoice);
@@ -110,66 +112,14 @@ export class InvoiceFormComponent implements OnInit {
     // invoiceNumber++;
     // this.invoiceService.addInvoice(this.invoice);
     // this.invoice = new Invoice();
-    console.log('Container list:', this.invoiceService.currentInvoice);
+    console.log('Container list:', this.invoice);
   }
 
-  copyBilling(): void {
-    if (!this.sameAsBilling) {
-      this.invoice.client.shippingAddress = { ...this.invoice.client.billingAddress };
-    } else {
-      this.invoice.client.shippingAddress.address1 = '';
-      this.invoice.client.shippingAddress.address2 = '';
-      this.invoice.client.shippingAddress.city = '';
-      this.invoice.client.shippingAddress.state = '';
-      this.invoice.client.shippingAddress.zipCode = '';
-    }
+  addNewContainer(data: Container): void {
+    this.invoice.containers.push(data);
   }
 
-  phoneChange(): void {
-    // ToDo: format phone
-  }
-
-  billingAddress1Change(event): void {
-    if (this.sameAsBilling) {
-      this.invoice.client.shippingAddress.address1 = event.target.value;
-    }
-  }
-
-  billingAddress2Change(event): void {
-    if (this.sameAsBilling) {
-      this.invoice.client.shippingAddress.address2 = event.target.value;
-    }
-  }
-
-  billingCityChange(event): void {
-    if (this.sameAsBilling) {
-      this.invoice.client.shippingAddress.city = event.target.value;
-    }
-  }
-
-  billingStateChange(event): void {
-    if (this.sameAsBilling) {
-      this.invoice.client.shippingAddress.state = event.target.value;
-    }
-  }
-
-  billingZipCodeChange(event): void {
-    if (this.sameAsBilling) {
-      this.invoice.client.shippingAddress.zipCode = event.target.value;
-    }
-  }
-
-  selectClient(client: Client): void {
-    this.isSearchingClient = false;
-    this.displayName = client.displayName;
-    this.invoice.client = client;
-  }
-
-  submitClient(): void {
-    if (this.isAddingClient) {
-      this.clientService.addClient(this.client);
-    } else {
-      this.clientService.updateClient(this.client);
-    }
+  editContainer(data: { container: Container, index: number }): void {
+    this.invoice.containers[data.index] = data.container;
   }
 }

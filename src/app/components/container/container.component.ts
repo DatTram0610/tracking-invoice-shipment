@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -18,13 +18,19 @@ import { InvoiceService } from '../../services/invoice.service';
   styleUrls: ['./container.component.less']
 })
 export class ContainerComponent implements OnInit {
+  @Output() onContainerAdded: EventEmitter<Container> = new EventEmitter<Container>();
+  @Output() onContainerEdited: EventEmitter<{ container: Container, index: number }> = new EventEmitter<{ container: Container, index: number }>();
+
+
   currentContainer: Container;
-  containerList: Container[];
+  containerList: Container[] = [];
   containerId: number;
   containerSizes: string[] = ['20', '40', '60', 'LCL'];
   dataSource: MatTableDataSource<Container>;
   displayedColumns: string[] = ['product/service', 'description', 'actions'];
-  edittingPosition: number;
+  isEditing: boolean = false;
+  addButtonText: string = 'Add Container';
+  edittingPosition: number = -1;
   dimensionUnits: { value: string; viewValue: string }[] = [
     {
       value: DimensionUnits[0],
@@ -85,18 +91,18 @@ export class ContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentContainer = new Container();
-    this.containerList = this.invoiceService.getContainerList();
-    this.containerId = 1;
   }
 
   addContainer(): void {
     console.log('Current container:', this.currentContainer);
+    this.isEditing = false;
     if (this.edittingPosition >= 0) {
       this.containerList[this.edittingPosition] = this.currentContainer;
+      this.onContainerEdited.emit({ container: this.currentContainer, index: this.edittingPosition });
       this.edittingPosition = -1;
     } else {
-      this.currentContainer.id = this.containerId;
       this.containerList.push(this.currentContainer);
+      this.onContainerAdded.emit(this.currentContainer);
     }
     this.currentContainer = new Container();
     this.dataSource = new MatTableDataSource(this.containerList);
@@ -105,7 +111,12 @@ export class ContainerComponent implements OnInit {
   }
 
   editContainer(element: Container, i: number): void {
-    this.currentContainer = element;
+    this.isEditing = true;
+    this.addButtonText = 'Save';
+    console.log('Element:', element);
+    const container = new Container(element);
+    console.log('Container:', container);
+    this.currentContainer = container;
     this.edittingPosition = i;
   }
 
@@ -113,5 +124,10 @@ export class ContainerComponent implements OnInit {
     this.containerList.splice(i, 1);
     // this.invoiceService.currentInvoice.container.splice(i, 1);
     this.dataSource = new MatTableDataSource(this.containerList);
+  }
+
+  cancelEditing(): void {
+    this.isEditing = false;
+    this.currentContainer = new Container();
   }
 }

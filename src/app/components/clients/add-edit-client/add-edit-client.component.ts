@@ -19,7 +19,7 @@ export class AddEditClientComponent implements OnInit {
   isAddingClient: boolean;
   submitButtonText: string;
 
-  constructor(private clientService: ClientService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private clientService: ClientService, private router: Router, private route: ActivatedRoute) {}
   businessType: string[];
   term: number[];
   taxIDType: string[];

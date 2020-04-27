@@ -310,6 +310,7 @@
     </div>
     <!-- End Transporting Process -->
 
-    <button type="submit" class="btn btn-secondary">Add Container</button>
+    <button type="submit" class="btn btn-secondary">{{!isEditing ? 'Add container' : 'Save'}}</button>
+    <button type="submit" class="btn btn-light" *ngIf="isEditing" (click)="cancelEditing()">Cancel</button>
   </form>
 </div>
