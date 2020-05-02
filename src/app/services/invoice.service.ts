@@ -4,161 +4,103 @@ import { Injectable } from '@angular/core';
 import { Invoice } from '../models/invoice';
 import { Container } from '../models/container/container';
 import { InvoiceStatus, InvoiceMode } from '../models/enum';
+import { Client } from '../models/client';
+import { Shipment } from '../models/shipment';
+import { ContainerReleasement } from '../models/container/container-releasement';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InvoiceService {
   currentInvoice: Invoice;
-  // invoices: Invoice[] = [
-  //   {
-  //     carrier: 'USPS',
-  //     client: {
-  //       id: '2',
-  //       displayName: 'Hao',
-  //       firstName: 'David',
-  //       lastName: 'Muller',
-  //       email: 'davidm@gmail.com',
-  //       phone: '3109725678',
-  //       nameOnCheck: 'Company B',
-  //       billingAddress: {
-  //         address1: '456 Western St',
-  //         address2: 'Suite #123',
-  //         city: 'Hawthorne',
-  //         state: 'CA',
-  //         zipCode: '96789',
-  //         country: 'US'
-  //       },
-  //       shippingAddress: {
-  //         address1: '456 Western St',
-  //         address2: 'Suite #333',
-  //         city: 'Hawthorne',
-  //         state: 'CA',
-  //         zipCode: '96789',
-  //         country: 'US'
-  //       },
-  //       createdDate: new Date('2015-04-25'),
-  //       updatedDate: new Date('2015-03-25'),
-  //       term: 1
-  //     },
-  //     clientName: 'Daniel',
-  //     container: [
-  //       {
-  //         amount: 1,
-  //         description: 'Test container',
-  //         id: 1,
-  //         product: 'Test product',
-  //         quantity: 1,
-  //         rate: 1
-  //       }
-  //     ],
-  //     entryDate: new Date(),
-  //     eta: new Date(),
-  //     fileNumber: '123abc',
-  //     invoiceId: 'SD12sDFSDFfd343',
-  //     masterBL: 'MasterBL',
-  //     mode: InvoiceMode.FCL,
-  //     status: InvoiceStatus.InProgress,
-  //     terminal: '4'
-  //   }
-  //   // {
-  //   //   invoiceId: 'FKGDFG3124D!DD',
-  //   //   status: InvoiceStatus.InProgress,
-  //   //   createdDate: new Date(),
-  //   // client: {
-  //   //   id: '2',
-  //   //   displayName: 'Hao',
-  //   //   firstName: 'David',
-  //   //   lastName: 'Muller',
-  //   //   email: 'davidm@gmail.com',
-  //   //   phone: '3109725678',
-  //   //   nameOnCheck: 'Company B',
-  //   //   billingAddress: {
-  //   //     address1: '456 Western St',
-  //   //     address2: 'Suite #123',
-  //   //     city: 'Hawthorne',
-  //   //     state: 'CA',
-  //   //     zipCode: '96789',
-  //   //     country: 'US'
-  //   //   },
-  //   //   shippingAddress: {
-  //   //     address1: '456 Western St',
-  //   //     address2: 'Suite #333',
-  //   //     city: 'Hawthorne',
-  //   //     state: 'CA',
-  //   //     zipCode: '96789',
-  //   //     country: 'US'
-  //   //   },
-  //   //   createdDate: new Date('2015-04-25'),
-  //   //   updatedDate: new Date('2015-03-25'),
-  //   //   term: 1
-  //   // },
-  //   //   container: [
-  //   //     {
-  //   //       amount: 2,
-  //   //       description: 'Test container',
-  //   //       id: 1,
-  //   //       product: 'Test product',
-  //   //       quantity: 1,
-  //   //       rate: 2
-  //   //     }
-  //   //   ]
-  //   // },
-  //   // {
-  //   //   invoiceId: 'IBKFJ424GDFGJJ9',
-  //   //   status: InvoiceStatus.Completed,
-  //   //   createdDate: new Date(),
-  //   //   client: {
-  //   //     id: '3',
-  //   //     displayName: 'Cuong',
-  //   //     firstName: 'Tin',
-  //   //     lastName: 'Authur',
-  //   //     email: 'tint@gmail.com',
-  //   //     phone: '3109729010',
-  //   //     nameOnCheck: 'Company C',
-  //   //     billingAddress: {
-  //   //       address1: '789 Marine St',
-  //   //       address2: 'Suite #444',
-  //   //       city: 'Irvine',
-  //   //       state: 'CA',
-  //   //       zipCode: '99012',
-  //   //       country: 'US'
-  //   //     },
-  //   //     shippingAddress: {
-  //   //       address1: '789 Marine St',
-  //   //       address2: 'Suite #687',
-  //   //       city: 'Irvine',
-  //   //       state: 'CA',
-  //   //       zipCode: '99012',
-  //   //       country: 'US'
-  //   //     },
-  //   //     createdDate: new Date('2015-05-23'),
-  //   //     updatedDate: new Date('2015-03-25'),
-  //   //     term: 1
-  //   //   },
-  //   //   container: [
-  //   //     {
-  //   //       amount: 3,
-  //   //       description: 'Test container',
-  //   //       id: 1,
-  //   //       product: 'Test product',
-  //   //       quantity: 3,
-  //   //       rate: 9
-  //   //     }
-  //   //   ]
-  //   // }
-  // ];
+
+
+  // NOTE: Fake data
+  // TOTO: Replace this with real invoice data later
+  // CONTINUE: Add more fake data for invoices
+  invoice1: Invoice = new Invoice();
+  invoice2: Invoice = new Invoice();
+  invoice3: Invoice = new Invoice();
+  invoice4: Invoice = new Invoice();
+  client1: Client = new Client();
+  client2: Client = new Client();
+  client3: Client = new Client();
+  client4: Client = new Client();
+  shipment1: Shipment = new Shipment();
+  shipment2: Shipment = new Shipment();
+  shipment3: Shipment = new Shipment();
+  shipment4: Shipment = new Shipment();
+  container1: Container = new Container();
+  container11: Container = new Container();
+  container2: Container = new Container();
+  container21: Container = new Container();
+  container3: Container = new Container();
+  container31: Container = new Container();
+  container4: Container = new Container();
+  container41: Container = new Container();
+  invoiceList: Invoice[] = [];
+
   constructor() {
     this.currentInvoice = new Invoice();
+    const currentDate = new Date();
+    this.client1.firstName = "Daniel";
+    this.client1.lastName = "Frank";
+    this.client1.displayName = "FreshFood INC."
+    this.client2.firstName = "Oliver";
+    this.client2.lastName = "Smith";
+    this.client2.displayName = "BrandRoot"
+    this.client3.firstName = "Liam";
+    this.client3.lastName = "Jones";
+    this.client3.displayName = "HardStone LLC";
+    this.client4.firstName = "Lucas";
+    this.client4.lastName = "Davis";
+    this.client4.displayName = "Chemis Lab";
+    this.shipment1.term = 30;
+    this.shipment1.fileNumber = "DFSD23SFs";
+    this.shipment1.estLastFreeDay.setDate(currentDate.getDate() - 1);
+    this.shipment2.term = 10;
+    this.shipment2.fileNumber = "XVSD34SDF";
+    this.shipment2.estLastFreeDay.setDate(currentDate.getDate() - 3);
+    this.shipment3.term = 15;
+    this.shipment3.fileNumber = "SFSF23SFS";
+    this.shipment3.estLastFreeDay.setDate(currentDate.getDate() - 2);
+    this.shipment4.term = 10;
+    this.shipment4.fileNumber = "ZZXV234FASF";
+    this.shipment4.estLastFreeDay.setDate(currentDate.getDate() - 1);
+    this.container1.product = "Food";
+    this.container1.description = "Food products for Costco";
+    this.container11.product = "Food";
+    this.container11.description = "Food products for Costco";
+    this.container2.product = "Clothing Material";
+    this.container2.description = "Clothing Material for local manufacturer";
+    this.container21.product = "Clothing Material";
+    this.container21.description = "Clothing Material for local manufacturer";
+    this.container3.product = "Construction";
+    this.container3.description = "Construction material for BLD Construction LLC";
+    this.container31.product = "Construction";
+    this.container31.description = "Construction material for BLD Construction LLC";
+    this.container4.product = "Electrical Parts";
+    this.container4.description = "Electrical Parts for BestBuy";
+    this.container41.product = "Electrical Parts";
+    this.container41.description = "Electrical Parts for BestBuy";
+    this.invoice1.client = this.client1;
+    this.invoice1.shipment = this.shipment1;
+    this.invoice1.containers = [this.container1, this.container11];
+    this.invoice2.client = this.client2;
+    this.invoice2.shipment = this.shipment2;
+    this.invoice2.containers = [this.container2, this.container21];
+    this.invoice3.client = this.client3;
+    this.invoice3.shipment = this.shipment3;
+    this.invoice3.containers = [this.container3, this.container31];
+    this.invoice4.client = this.client4;
+    this.invoice4.shipment = this.shipment4;
+    this.invoice4.containers = [this.container4, this.container41];
+    this.invoiceList = [this.invoice1, this.invoice2, this.invoice3, this.invoice4];
   }
 
   addInvoice(invoice: Invoice): void {
+    this.invoiceList.push(invoice);
     console.log('Submited Invoice:', invoice);
-  }
-
-  addContainer(container: Container): void {
-    this.currentInvoice.containers.push(container);
-    console.log('Current invoice:', this.currentInvoice.containers);
   }
 
   getContainerList(): Container[] {
@@ -166,7 +108,6 @@ export class InvoiceService {
   }
 
   getInvoiceList(): Invoice[] {
-    // return this.invoices;
-    return [];
+    return this.invoiceList;
   }
 }

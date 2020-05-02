@@ -9,7 +9,7 @@ export class Shipment {
   houseBL?: string;
   terminal: string;
   expectedTimeOfArrival: Date;
-  estLastFreeDay?: Date;
+  estLastFreeDay: Date;
   entryDate: Date;
   devanning?: DevanningEnum;
   term: number;
@@ -23,5 +23,6 @@ export class Shipment {
     this.expectedTimeOfArrival = new Date();
     this.entryDate = new Date();
     this.term = 0;
+    this.estLastFreeDay = new Date();
   }
 }

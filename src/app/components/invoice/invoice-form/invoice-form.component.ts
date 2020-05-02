@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // Models
 import { Client } from '../../../models/client';
@@ -92,7 +93,8 @@ export class InvoiceFormComponent implements OnInit {
   constructor(
     private clientService: ClientService,
     private invoiceService: InvoiceService,
-    private debounce: Debounce
+    private debounce: Debounce,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -113,6 +115,8 @@ export class InvoiceFormComponent implements OnInit {
     // this.invoiceService.addInvoice(this.invoice);
     // this.invoice = new Invoice();
     console.log('Container list:', this.invoice);
+    this.invoiceService.addInvoice(this.invoice);
+    this.router.navigate(['/']);
   }
 
   addNewContainer(data: Container): void {

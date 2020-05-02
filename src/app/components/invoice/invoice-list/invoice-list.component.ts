@@ -18,7 +18,7 @@ import { InvoiceFormComponent } from '../invoice-form/invoice-form.component';
 })
 export class InvoiceListComponent implements OnInit {
   invoices: Invoice[];
-  displayedColumns: string[] = ['id', 'date', 'name', 'status', 'actions'];
+  displayedColumns: string[] = ['id', 'entryDate', 'displayName', 'lastFreeDay', 'actions'];
   invoiceStatus: any;
 
   // Table
@@ -28,7 +28,7 @@ export class InvoiceListComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
 
-  constructor(private invoiceService: InvoiceService) {}
+  constructor(private invoiceService: InvoiceService) { }
 
   ngOnInit() {
     this.invoices = this.invoiceService.getInvoiceList();
@@ -41,5 +41,13 @@ export class InvoiceListComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.invoiceService.getInvoiceList());
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+  }
+
+  getRemainingFreeDay(estFreeDate: Date): number {
+    const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+    const currentDate = new Date();
+    const utc1 = Date.UTC(estFreeDate.getFullYear(), estFreeDate.getMonth(), estFreeDate.getDate());
+    const utc2 = Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+    return Math.floor((utc2 - utc1) / _MS_PER_DAY);
   }
 }
