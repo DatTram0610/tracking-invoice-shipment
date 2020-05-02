@@ -14,7 +14,6 @@ import { ContainerReleasement } from '../models/container/container-releasement'
 export class InvoiceService {
   currentInvoice: Invoice;
 
-
   // NOTE: Fake data
   // TOTO: Replace this with real invoice data later
   // CONTINUE: Add more fake data for invoices
@@ -43,46 +42,46 @@ export class InvoiceService {
   constructor() {
     this.currentInvoice = new Invoice();
     const currentDate = new Date();
-    this.client1.firstName = "Daniel";
-    this.client1.lastName = "Frank";
-    this.client1.displayName = "FreshFood INC."
-    this.client2.firstName = "Oliver";
-    this.client2.lastName = "Smith";
-    this.client2.displayName = "BrandRoot"
-    this.client3.firstName = "Liam";
-    this.client3.lastName = "Jones";
-    this.client3.displayName = "HardStone LLC";
-    this.client4.firstName = "Lucas";
-    this.client4.lastName = "Davis";
-    this.client4.displayName = "Chemis Lab";
+    this.client1.firstName = 'Daniel';
+    this.client1.lastName = 'Frank';
+    this.client1.displayName = 'FreshFood INC.';
+    this.client2.firstName = 'Oliver';
+    this.client2.lastName = 'Smith';
+    this.client2.displayName = 'BrandRoot';
+    this.client3.firstName = 'Liam';
+    this.client3.lastName = 'Jones';
+    this.client3.displayName = 'HardStone LLC';
+    this.client4.firstName = 'Lucas';
+    this.client4.lastName = 'Davis';
+    this.client4.displayName = 'Chemis Lab';
     this.shipment1.term = 30;
-    this.shipment1.fileNumber = "DFSD23SFs";
+    this.shipment1.fileNumber = 'DFSD23SFs';
     this.shipment1.estLastFreeDay.setDate(currentDate.getDate() - 1);
     this.shipment2.term = 10;
-    this.shipment2.fileNumber = "XVSD34SDF";
+    this.shipment2.fileNumber = 'XVSD34SDF';
     this.shipment2.estLastFreeDay.setDate(currentDate.getDate() - 3);
     this.shipment3.term = 15;
-    this.shipment3.fileNumber = "SFSF23SFS";
+    this.shipment3.fileNumber = 'SFSF23SFS';
     this.shipment3.estLastFreeDay.setDate(currentDate.getDate() - 2);
     this.shipment4.term = 10;
-    this.shipment4.fileNumber = "ZZXV234FASF";
+    this.shipment4.fileNumber = 'ZZXV234FASF';
     this.shipment4.estLastFreeDay.setDate(currentDate.getDate() - 1);
-    this.container1.product = "Food";
-    this.container1.description = "Food products for Costco";
-    this.container11.product = "Food";
-    this.container11.description = "Food products for Costco";
-    this.container2.product = "Clothing Material";
-    this.container2.description = "Clothing Material for local manufacturer";
-    this.container21.product = "Clothing Material";
-    this.container21.description = "Clothing Material for local manufacturer";
-    this.container3.product = "Construction";
-    this.container3.description = "Construction material for BLD Construction LLC";
-    this.container31.product = "Construction";
-    this.container31.description = "Construction material for BLD Construction LLC";
-    this.container4.product = "Electrical Parts";
-    this.container4.description = "Electrical Parts for BestBuy";
-    this.container41.product = "Electrical Parts";
-    this.container41.description = "Electrical Parts for BestBuy";
+    this.container1.product = 'Food';
+    this.container1.description = 'Food products for Costco';
+    this.container11.product = 'Food';
+    this.container11.description = 'Food products for Costco';
+    this.container2.product = 'Clothing Material';
+    this.container2.description = 'Clothing Material for local manufacturer';
+    this.container21.product = 'Clothing Material';
+    this.container21.description = 'Clothing Material for local manufacturer';
+    this.container3.product = 'Construction';
+    this.container3.description = 'Construction material for BLD Construction LLC';
+    this.container31.product = 'Construction';
+    this.container31.description = 'Construction material for BLD Construction LLC';
+    this.container4.product = 'Electrical Parts';
+    this.container4.description = 'Electrical Parts for BestBuy';
+    this.container41.product = 'Electrical Parts';
+    this.container41.description = 'Electrical Parts for BestBuy';
     this.invoice1.client = this.client1;
     this.invoice1.shipment = this.shipment1;
     this.invoice1.containers = [this.container1, this.container11];

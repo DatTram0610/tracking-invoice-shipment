@@ -105,8 +105,8 @@ export class InvoiceFormComponent implements OnInit {
     this.term = [1, 3, 7, 10, 15];
   }
 
-
-  // TODO: Change this.invoiceService.addInvoice to submitInvoice and navigate to home page. After this, create tabs for list of containers and invoices
+  // TODO: Change this.invoiceService.addInvoice to submitInvoice and navigate to home page. 
+  // After this, create tabs for list of containers and invoices
   submitInvoice() {
     // let invoiceNumber = 0;
     // console.log(this.invoice);
@@ -123,7 +123,7 @@ export class InvoiceFormComponent implements OnInit {
     this.invoice.containers.push(data);
   }
 
-  editContainer(data: { container: Container, index: number }): void {
+  editContainer(data: { container: Container; index: number }): void {
     this.invoice.containers[data.index] = data.container;
   }
 }

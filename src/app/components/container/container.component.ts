@@ -18,9 +18,11 @@ import { InvoiceService } from '../../services/invoice.service';
   styleUrls: ['./container.component.less']
 })
 export class ContainerComponent implements OnInit {
-  @Output() onContainerAdded: EventEmitter<Container> = new EventEmitter<Container>();
-  @Output() onContainerEdited: EventEmitter<{ container: Container, index: number }> = new EventEmitter<{ container: Container, index: number }>();
-
+  @Output() containerAdded: EventEmitter<Container> = new EventEmitter<Container>();
+  @Output() containerEdited: EventEmitter<{ container: Container; index: number }> = new EventEmitter<{
+    container: Container;
+    index: number;
+  }>();
 
   currentContainer: Container;
   containerList: Container[] = [];
@@ -28,9 +30,9 @@ export class ContainerComponent implements OnInit {
   containerSizes: string[] = ['20', '40', '60', 'LCL'];
   dataSource: MatTableDataSource<Container>;
   displayedColumns: string[] = ['product/service', 'description', 'actions'];
-  isEditing: boolean = false;
-  addButtonText: string = 'Add Container';
-  edittingPosition: number = -1;
+  isEditing = false;
+  addButtonText = 'Add Container';
+  edittingPosition = -1;
   dimensionUnits: { value: string; viewValue: string }[] = [
     {
       value: DimensionUnits[0],
@@ -98,11 +100,11 @@ export class ContainerComponent implements OnInit {
     this.isEditing = false;
     if (this.edittingPosition >= 0) {
       this.containerList[this.edittingPosition] = this.currentContainer;
-      this.onContainerEdited.emit({ container: this.currentContainer, index: this.edittingPosition });
+      this.containerEdited.emit({ container: this.currentContainer, index: this.edittingPosition });
       this.edittingPosition = -1;
     } else {
       this.containerList.push(this.currentContainer);
-      this.onContainerAdded.emit(this.currentContainer);
+      this.containerAdded.emit(this.currentContainer);
     }
     this.currentContainer = new Container();
     this.dataSource = new MatTableDataSource(this.containerList);
