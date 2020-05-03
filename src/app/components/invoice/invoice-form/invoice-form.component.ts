@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // Models
 import { Client } from '../../../models/client';
-import { Container } from '../../../models/container';
+import { Container } from '../../../models/container/container';
 import { Invoice } from '../../../models/invoice';
+import { InvoiceMode, ShipmentStatus, DevanningEnum } from '../../../models/enum';
 
 // Services
 import { ClientService } from '../../../services/client.service';
@@ -28,7 +30,7 @@ export class InvoiceFormComponent implements OnInit {
   clientList: Client[];
   searchedClients: Client[];
   isSearchingClient: boolean;
-  testText: string;
+  displayName: string;
 
   sameAsBilling: Boolean = false;
   addClientError: Boolean = false;
@@ -36,6 +38,37 @@ export class InvoiceFormComponent implements OnInit {
   submitButtonText: string;
 
   term: number[];
+  modes: { value: number; viewValue: string }[] = [
+    {
+      value: InvoiceMode.FCL,
+      viewValue: InvoiceMode[0]
+    },
+    {
+      value: InvoiceMode.LCL,
+      viewValue: InvoiceMode[1]
+    }
+  ];
+  shipmentStatus: { value: number; viewValue: string }[] = [
+    {
+      value: ShipmentStatus.Hot,
+      viewValue: ShipmentStatus[0]
+    },
+    {
+      value: ShipmentStatus.Standard,
+      viewValue: ShipmentStatus[1]
+    }
+  ];
+
+  devanningOptions: { value: string; viewValue: string }[] = [
+    {
+      value: DevanningEnum[0],
+      viewValue: DevanningEnum[0]
+    },
+    {
+      value: DevanningEnum[1],
+      viewValue: DevanningEnum[1]
+    }
+  ];
 
   searchClient = this.debounce.debounce(
     (clientName: string) => {
@@ -60,8 +93,9 @@ export class InvoiceFormComponent implements OnInit {
   constructor(
     private clientService: ClientService,
     private invoiceService: InvoiceService,
-    private debounce: Debounce
-  ) {}
+    private debounce: Debounce,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     // this.invoice = this.invoiceService.currentInvoice;
@@ -71,6 +105,8 @@ export class InvoiceFormComponent implements OnInit {
     this.term = [1, 3, 7, 10, 15];
   }
 
+  // TODO: Change this.invoiceService.addInvoice to submitInvoice and navigate to home page. 
+  // After this, create tabs for list of containers and invoices
   submitInvoice() {
     // let invoiceNumber = 0;
     // console.log(this.invoice);
@@ -78,66 +114,16 @@ export class InvoiceFormComponent implements OnInit {
     // invoiceNumber++;
     // this.invoiceService.addInvoice(this.invoice);
     // this.invoice = new Invoice();
-    console.log('Container list:', this.invoiceService.currentInvoice);
+    console.log('Container list:', this.invoice);
+    this.invoiceService.addInvoice(this.invoice);
+    this.router.navigate(['/']);
   }
 
-  copyBilling(): void {
-    if (!this.sameAsBilling) {
-      this.invoice.client.shippingAddress = { ...this.invoice.client.billingAddress };
-    } else {
-      this.invoice.client.shippingAddress.address1 = '';
-      this.invoice.client.shippingAddress.address2 = '';
-      this.invoice.client.shippingAddress.city = '';
-      this.invoice.client.shippingAddress.state = '';
-      this.invoice.client.shippingAddress.zipCode = '';
-    }
+  addNewContainer(data: Container): void {
+    this.invoice.containers.push(data);
   }
 
-  phoneChange(): void {
-    // ToDo: format phone
-  }
-
-  billingAddress1Change(event): void {
-    if (this.sameAsBilling) {
-      this.invoice.client.shippingAddress.address1 = event.target.value;
-    }
-  }
-
-  billingAddress2Change(event): void {
-    if (this.sameAsBilling) {
-      this.invoice.client.shippingAddress.address2 = event.target.value;
-    }
-  }
-
-  billingCityChange(event): void {
-    if (this.sameAsBilling) {
-      this.invoice.client.shippingAddress.city = event.target.value;
-    }
-  }
-
-  billingStateChange(event): void {
-    if (this.sameAsBilling) {
-      this.invoice.client.shippingAddress.state = event.target.value;
-    }
-  }
-
-  billingZipCodeChange(event): void {
-    if (this.sameAsBilling) {
-      this.invoice.client.shippingAddress.zipCode = event.target.value;
-    }
-  }
-
-  selectClient(client: Client): void {
-    this.isSearchingClient = false;
-    this.testText = client.displayName;
-    this.invoice.client = client;
-  }
-
-  submitClient(): void {
-    if (this.isAddingClient) {
-      this.clientService.addClient(this.client);
-    } else {
-      this.clientService.updateClient(this.client);
-    }
+  editContainer(data: { container: Container; index: number }): void {
+    this.invoice.containers[data.index] = data.container;
   }
 }

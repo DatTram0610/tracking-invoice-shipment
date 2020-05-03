@@ -1,22 +1,19 @@
 // Models
 import { Client } from './client';
-import { Container } from './container';
-import { InvoiceStatus } from './enum-status';
+import { Container } from './container/container';
+import { InvoiceStatus, InvoiceMode, DevanningEnum } from './enum';
 
 // Others
 import { v4 as uuid } from 'uuid';
+import { Shipment } from './shipment';
 
 export class Invoice {
-  invoiceId: string;
-  status: InvoiceStatus;
   client: Client;
-  container: Container[];
-  createdDate: Date;
+  shipment: Shipment;
+  containers: Container[];
   constructor() {
-    this.invoiceId = uuid();
     this.client = new Client();
-    this.container = [];
-    this.status = InvoiceStatus.InProgress;
-    this.createdDate = new Date();
+    this.containers = [];
+    this.shipment = new Shipment();
   }
 }
