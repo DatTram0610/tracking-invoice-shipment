@@ -1,14 +1,9 @@
-<div class="welcome" fxLayout="column" fxLayout.gt-md="row" fxLayoutGap.gt-md="20px" fxLayoutAlign="center center">
-  <section>
-    <h1>Activity</h1>
-    <p>Company's current activity</p>
-  </section>
-  <section>
-    <h1>Orders</h1>
-    <p>Company's most current orders</p>
-  </section>
-  <section>
-    <h1>Announcement</h1>
-    <p>Company's announcement</p>
-  </section>
+<div class="welcome">
+  <mat-tab-group>
+    <mat-tab label="Containers">
+      <app-container-list></app-container-list>
+    </mat-tab>
+    <mat-tab label="Invoices"> Invoices </mat-tab>
+    <mat-tab label="Announcements"> Announcements </mat-tab>
+  </mat-tab-group>
 </div>

@@ -8,8 +8,6 @@ import { InvoiceService } from '../../../services/invoice.service';
 
 // Models
 import { Invoice } from '../../../models/invoice';
-import { InvoiceStatus } from 'src/app/models/enum';
-import { InvoiceFormComponent } from '../invoice-form/invoice-form.component';
 
 @Component({
   selector: 'app-invoice-list',
@@ -28,7 +26,7 @@ export class InvoiceListComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
 
-  constructor(private invoiceService: InvoiceService) {}
+  constructor(private invoiceService: InvoiceService) { }
 
   ngOnInit() {
     this.invoices = this.invoiceService.getInvoiceList();

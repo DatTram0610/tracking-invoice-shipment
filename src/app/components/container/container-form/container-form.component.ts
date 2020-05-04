@@ -4,20 +4,20 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 
 // Models
-import { Container } from '../../models/container/container';
+import { Container } from '../../../models/container/container';
 
 // Enums
-import { DimensionUnits, QuantityUnits, WeightUnits, FreightStatuses, CustomStatuses } from '../../models/enum';
+import { DimensionUnits, QuantityUnits, WeightUnits, FreightStatuses, CustomStatuses } from '../../../models/enum';
 
 // Services
-import { InvoiceService } from '../../services/invoice.service';
+import { InvoiceService } from '../../../services/invoice.service';
 
 @Component({
-  selector: 'app-container',
-  templateUrl: './container.component.html',
-  styleUrls: ['./container.component.less']
+  selector: 'app-container-form',
+  templateUrl: './container-form.component.html',
+  styleUrls: ['./container-form.component.less']
 })
-export class ContainerComponent implements OnInit {
+export class ContainerFormComponent implements OnInit {
   @Output() containerAdded: EventEmitter<Container> = new EventEmitter<Container>();
   @Output() containerEdited: EventEmitter<{ container: Container; index: number }> = new EventEmitter<{
     container: Container;

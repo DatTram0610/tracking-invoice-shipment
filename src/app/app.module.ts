@@ -19,7 +19,8 @@ import { ClientListComponent } from './components/clients/client-list/client-lis
 import { SidenavListComponent } from './components/navigation/sidenav-list/sidenav-list.component';
 import { ClientDetailComponent } from './components/clients/client-detail/client-detail.component';
 import { AddEditClientComponent } from './components/clients/add-edit-client/add-edit-client.component';
-import { ContainerComponent } from './components/container/container.component';
+import { ContainerFormComponent } from './components/container/container-form/container-form.component';
+import { ContainerListComponent } from './components/container/container-list/container-list.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 
@@ -43,7 +44,8 @@ import { Debounce } from './helpers/debounce.helper';
     SidenavListComponent,
     ClientDetailComponent,
     AddEditClientComponent,
-    ContainerComponent,
+    ContainerFormComponent,
+    ContainerListComponent,
     FooterComponent,
     HeaderComponent
   ],
@@ -60,4 +62,4 @@ import { Debounce } from './helpers/debounce.helper';
   providers: [InvoiceService, ClientService, Debounce],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

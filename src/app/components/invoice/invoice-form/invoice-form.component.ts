@@ -95,7 +95,7 @@ export class InvoiceFormComponent implements OnInit {
     private invoiceService: InvoiceService,
     private debounce: Debounce,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     // this.invoice = this.invoiceService.currentInvoice;
@@ -105,7 +105,7 @@ export class InvoiceFormComponent implements OnInit {
     this.term = [1, 3, 7, 10, 15];
   }
 
-  // TODO: Change this.invoiceService.addInvoice to submitInvoice and navigate to home page. 
+  // TODO: Change this.invoiceService.addInvoice to submitInvoice and navigate to home page.
   // After this, create tabs for list of containers and invoices
   submitInvoice() {
     // let invoiceNumber = 0;
