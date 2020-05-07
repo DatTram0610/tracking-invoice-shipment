@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-
 // Models
 import { Container } from '../models/container/container';
 import { Invoice } from '../models/invoice';
@@ -11,19 +10,18 @@ import { InvoiceService } from './invoice.service';
 @Injectable({
     providedIn: 'root'
 })
-
 export class ContainerService {
     containerList: Container[] = [];
 
-    constructor(private invoiceService: InvoiceService) { };
+    constructor(private invoiceService: InvoiceService) { }
 
     getContainerList(): Container[] {
         const invoiceList = this.invoiceService.getInvoiceList();
         const containerList = this.extractContainersFromInvoices(invoiceList);
         return containerList;
-    };
+    }
 
-    extractContainersFromInvoices(invoiceList: Invoice[]): Container[] {
+    private extractContainersFromInvoices(invoiceList: Invoice[]): Container[] {
         let containerList: Container[] = [];
         invoiceList.forEach((invoice: Invoice) => {
             if (invoice.containers?.length) {

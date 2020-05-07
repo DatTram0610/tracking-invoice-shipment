@@ -62,4 +62,4 @@ import { Debounce } from './helpers/debounce.helper';
   providers: [InvoiceService, ClientService, Debounce],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

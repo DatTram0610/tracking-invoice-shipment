@@ -26,7 +26,7 @@ export class InvoiceListComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
 
-  constructor(private invoiceService: InvoiceService) { }
+  constructor(private invoiceService: InvoiceService) {}
 
   ngOnInit() {
     this.invoices = this.invoiceService.getInvoiceList();

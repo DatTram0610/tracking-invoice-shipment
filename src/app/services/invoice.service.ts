@@ -66,22 +66,35 @@ export class InvoiceService {
     this.shipment4.term = 10;
     this.shipment4.fileNumber = 'ZZXV234FASF';
     this.shipment4.estLastFreeDay.setDate(currentDate.getDate() - 1);
+
     this.container1.product = 'Food';
     this.container1.description = 'Food products for Costco';
+    this.container1.containerDelivery.lastFreeDay.setDate(currentDate.getDate() - 1);
     this.container11.product = 'Food';
     this.container11.description = 'Food products for Costco';
+    this.container11.containerDelivery.lastFreeDay.setDate(currentDate.getDate() - 1);
+
     this.container2.product = 'Clothing Material';
     this.container2.description = 'Clothing Material for local manufacturer';
+    this.container2.containerDelivery.lastFreeDay.setDate(currentDate.getDate() - 3);
     this.container21.product = 'Clothing Material';
     this.container21.description = 'Clothing Material for local manufacturer';
+    this.container21.containerDelivery.lastFreeDay.setDate(currentDate.getDate() - 3);
+
     this.container3.product = 'Construction';
     this.container3.description = 'Construction material for BLD Construction LLC';
+    this.container3.containerDelivery.lastFreeDay.setDate(currentDate.getDate() - 2);
     this.container31.product = 'Construction';
     this.container31.description = 'Construction material for BLD Construction LLC';
+    this.container31.containerDelivery.lastFreeDay.setDate(currentDate.getDate() - 2);
+
     this.container4.product = 'Electrical Parts';
     this.container4.description = 'Electrical Parts for BestBuy';
+    this.container4.containerDelivery.lastFreeDay.setDate(currentDate.getDate() - 1);
     this.container41.product = 'Electrical Parts';
     this.container41.description = 'Electrical Parts for BestBuy';
+    this.container41.containerDelivery.lastFreeDay.setDate(currentDate.getDate() - 1);
+
     this.invoice1.client = this.client1;
     this.invoice1.shipment = this.shipment1;
     this.invoice1.containers = [this.container1, this.container11];
